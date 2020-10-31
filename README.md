@@ -1,2 +1,2 @@
-# lib
+# libs
 JavaScript Libraries
