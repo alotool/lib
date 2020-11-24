@@ -775,8 +775,7 @@ $(function () {
       }
     });
     a["find"](".mega-tabs ul li > a")["each"](function () {
-      var obj2 = $(this),
-        c = obj2["text"]()["trim"]();
+      var obj2 = $(this), c = obj2["text"]()["trim"]();
       obj2["attr"]("href", "/search/label/" + c);
     });
     a["appendTo"](obj);
