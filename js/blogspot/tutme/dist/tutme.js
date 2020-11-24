@@ -764,14 +764,12 @@ $(function () {
     a["appendTo"](obj);
   });
   $("#mobile-menu")["each"](function () {
-    var obj = $(this),
-      a = $("#alotool-main-menu-nav")["clone"]();
+    var obj = $(this), a = $("#alotool-main-menu-nav")["clone"]();
     a["attr"]("id", "main-mobile-nav");
     a["find"](".getMega, .mega-widget, .mega-tab")["remove"]();
     a["find"](".complex-tabs")["replaceWith"](a["find"](".complex-tabs > ul.select-tab")["attr"]("class", "sub-menu m-sub"));
     a["find"](".mega-menu > a")["each"](function () {
-      var obj1 = $(this),
-        b = obj1["attr"]("href")["trim"]()["toLowerCase"]();
+      var obj1 = $(this), b = obj1["attr"]("href")["trim"]()["toLowerCase"]();
       if (b["match"]("getmega")) {
         obj1["attr"]("href", "/search");
       }
