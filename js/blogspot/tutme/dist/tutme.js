@@ -837,7 +837,7 @@ $(function () {
       }
     }
   });
-  $("#main-wrapper,#sidebar-wrapper")["each"](function () {
+  $("#sidebar-wrapper-left,#main-wrapper,#sidebar-wrapper")["each"](function () {
     if (fixedSidebar == true) {
       $(this)["theiaStickySidebar"]({
         additionalMarginTop: 30,
