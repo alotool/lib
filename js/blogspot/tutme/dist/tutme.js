@@ -718,7 +718,7 @@ function ajaxRelated(obj, type, results, label, color) {
   }
 }
 
-// Comments system
+//---------- COMMENTS SYSTEM ----------//
 $(".blog-post-comments")["each"](function () {
   var obj = $(this),
     _commentsSystem = commentsSystem,
@@ -899,7 +899,7 @@ $(function () {
   });
 });
 
-/* ----- COSTUM ----- */
+//---------- CUSTOMIZE ----------//
 //TODO
 
 //]]>
