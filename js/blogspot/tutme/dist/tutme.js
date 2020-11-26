@@ -900,6 +900,16 @@ $(function () {
 });
 
 //---------- CUSTOMIZE ----------//
-//TODO
+// API blogger get post detail by postID.
+function getPostDetail(postID) {
+  return $.ajax({
+    url: '/feeds/posts/default/' + postID + '?alt=json',
+    type: 'GET',
+    dataType: 'json',
+    cache: true,
+    beforeSend: function (xhr) {
+    },
+  });
+}
 
 //]]>
