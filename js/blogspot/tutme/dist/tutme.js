@@ -711,7 +711,6 @@ function ajaxRelated(obj, type, results, label, color) {
 $(".blog-post-comments")["each"](function() {
   var obj = $(this),
     _commentsSystem = commentsSystem,
-    elComments = "<div class=\"fb-comments\" data-width=\"100%\" data-href=\"" + bloggerCurrentURL + "\" order_by=\"time\" data-numposts=\"5\"></div>",
     classCommentsSystem = "comments-system-" + _commentsSystem;
   switch (_commentsSystem) {
     case "blogger":
@@ -722,6 +721,7 @@ $(".blog-post-comments")["each"](function() {
       obj["addClass"](classCommentsSystem)["show"]();
       break;
     case "facebook":
+      var elComments = "<div class=\"fb-comments\" data-width=\"100%\" data-href=\"" + bloggerCurrentURL + "\" order_by=\"time\" data-numposts=\"5\"></div>";
       obj["addClass"](classCommentsSystem)["find"]("#comments")["html"](elComments);
       obj["show"]();
       break;
