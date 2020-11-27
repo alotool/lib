@@ -32,7 +32,7 @@ function arCuShowMessage(index) {
   if (typeof arCuMessages[index] !== 'undefined') {
     jQuery('#arcontactus').contactUs('showPromptTyping');
 
-    _arCuTimeOut = setTimeout(function () {
+    _arCuTimeOut = setTimeout(function() {
       if (arCuPromptClosed) {
         return false;
       }
@@ -40,7 +40,7 @@ function arCuShowMessage(index) {
         content: arCuMessages[index]
       });
       index++;
-      _arCuTimeOut = setTimeout(function () {
+      _arCuTimeOut = setTimeout(function() {
         if (arCuPromptClosed) {
           return false;
         }
@@ -58,16 +58,16 @@ function arCuShowMessage(index) {
 };
 
 function arCuShowMessages() {
-  setTimeout(function () {
+  setTimeout(function() {
     clearTimeout(_arCuTimeOut);
     arCuShowMessage(0);
   }, arCuDelayFirst);
 };
 
-window.addEventListener('load', function () {
-  jQuery('#arcontactus-storefront-btn').click(function (e) {
+window.addEventListener('load', function() {
+  jQuery('#arcontactus-storefront-btn').click(function(e) {
     e.preventDefault();
-    setTimeout(function () {
+    setTimeout(function() {
       jQuery('#arcontactus').contactUs('openMenu');
     }, 200);
   });
@@ -75,9 +75,9 @@ window.addEventListener('load', function () {
 
 var $jscomp = $jscomp || {};
 $jscomp.scope = {};
-$jscomp.arrayIteratorImpl = function (b) {
+$jscomp.arrayIteratorImpl = function(b) {
   var d = 0;
-  return function () {
+  return function() {
     return d < b.length ? {
       done: !1,
       value: b[d++]
@@ -86,7 +86,7 @@ $jscomp.arrayIteratorImpl = function (b) {
     }
   }
 };
-$jscomp.arrayIterator = function (b) {
+$jscomp.arrayIterator = function(b) {
   return {
     next: $jscomp.arrayIteratorImpl(b)
   }
@@ -95,62 +95,59 @@ $jscomp.ASSUME_ES5 = !1;
 $jscomp.ASSUME_NO_NATIVE_MAP = !1;
 $jscomp.ASSUME_NO_NATIVE_SET = !1;
 $jscomp.SIMPLE_FROUND_POLYFILL = !1;
-$jscomp.defineProperty = $jscomp.ASSUME_ES5 || "function" == typeof Object.defineProperties ? Object.defineProperty : function (b, d, a) {
+$jscomp.defineProperty = $jscomp.ASSUME_ES5 || "function" == typeof Object.defineProperties ? Object.defineProperty : function(b, d, a) {
   b != Array.prototype && b != Object.prototype && (b[d] = a.value)
 };
-$jscomp.getGlobal = function (b) {
+$jscomp.getGlobal = function(b) {
   return "undefined" != typeof window && window === b ? b : "undefined" != typeof global && null != global ? global : b
 };
 $jscomp.global = $jscomp.getGlobal(this);
 $jscomp.SYMBOL_PREFIX = "jscomp_symbol_";
-$jscomp.initSymbol = function () {
-  $jscomp.initSymbol = function () {
-  };
+$jscomp.initSymbol = function() {
+  $jscomp.initSymbol = function() {};
   $jscomp.global.Symbol || ($jscomp.global.Symbol = $jscomp.Symbol)
 };
-$jscomp.Symbol = function () {
+$jscomp.Symbol = function() {
   var b = 0;
-  return function (d) {
+  return function(d) {
     return $jscomp.SYMBOL_PREFIX + (d || "") + b++
   }
 }();
-$jscomp.initSymbolIterator = function () {
+$jscomp.initSymbolIterator = function() {
   $jscomp.initSymbol();
   var b = $jscomp.global.Symbol.iterator;
   b || (b = $jscomp.global.Symbol.iterator = $jscomp.global.Symbol("iterator"));
   "function" != typeof Array.prototype[b] && $jscomp.defineProperty(Array.prototype, b, {
     configurable: !0,
     writable: !0,
-    value: function () {
+    value: function() {
       return $jscomp.iteratorPrototype($jscomp.arrayIteratorImpl(this))
     }
   });
-  $jscomp.initSymbolIterator = function () {
-  }
+  $jscomp.initSymbolIterator = function() {}
 };
-$jscomp.initSymbolAsyncIterator = function () {
+$jscomp.initSymbolAsyncIterator = function() {
   $jscomp.initSymbol();
   var b = $jscomp.global.Symbol.asyncIterator;
   b || (b = $jscomp.global.Symbol.asyncIterator = $jscomp.global.Symbol("asyncIterator"));
-  $jscomp.initSymbolAsyncIterator = function () {
-  }
+  $jscomp.initSymbolAsyncIterator = function() {}
 };
-$jscomp.iteratorPrototype = function (b) {
+$jscomp.iteratorPrototype = function(b) {
   $jscomp.initSymbolIterator();
   b = {
     next: b
   };
-  b[$jscomp.global.Symbol.iterator] = function () {
+  b[$jscomp.global.Symbol.iterator] = function() {
     return this
   };
   return b
 };
-$jscomp.iteratorFromArray = function (b, d) {
+$jscomp.iteratorFromArray = function(b, d) {
   $jscomp.initSymbolIterator();
   b instanceof String && (b += "");
   var a = 0,
     c = {
-      next: function () {
+      next: function() {
         if (a < b.length) {
           var e = a++;
           return {
@@ -158,7 +155,7 @@ $jscomp.iteratorFromArray = function (b, d) {
             done: !1
           }
         }
-        c.next = function () {
+        c.next = function() {
           return {
             done: !0,
             value: void 0
@@ -167,12 +164,12 @@ $jscomp.iteratorFromArray = function (b, d) {
         return c.next()
       }
     };
-  c[Symbol.iterator] = function () {
+  c[Symbol.iterator] = function() {
     return c
   };
   return c
 };
-$jscomp.polyfill = function (b, d, a, c) {
+$jscomp.polyfill = function(b, d, a, c) {
   if (d) {
     a = $jscomp.global;
     b = b.split(".");
@@ -191,14 +188,14 @@ $jscomp.polyfill = function (b, d, a, c) {
     })
   }
 };
-$jscomp.polyfill("Array.prototype.values", function (b) {
-  return b ? b : function () {
-    return $jscomp.iteratorFromArray(this, function (b, a) {
+$jscomp.polyfill("Array.prototype.values", function(b) {
+  return b ? b : function() {
+    return $jscomp.iteratorFromArray(this, function(b, a) {
       return a
     })
   }
 }, "es8", "es3");
-$jscomp.findInternal = function (b, d, a) {
+$jscomp.findInternal = function(b, d, a) {
   b instanceof String && (b = String(b));
   for (var c = b.length, e = 0; e < c; e++) {
     var l = b[e];
@@ -212,13 +209,13 @@ $jscomp.findInternal = function (b, d, a) {
     v: void 0
   }
 };
-$jscomp.polyfill("Array.prototype.find", function (b) {
-  return b ? b : function (b, a) {
+$jscomp.polyfill("Array.prototype.find", function(b) {
+  return b ? b : function(b, a) {
     return $jscomp.findInternal(this, b, a).v
   }
 }, "es6", "es3");
 
-(function (b) {
+(function(b) {
   function d(a, c) {
     this._initialized = !1;
     this.settings = null;
@@ -316,7 +313,8 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
           "20:00",
           "21:00",
           "22:00",
-          "23:00"]
+          "23:00"
+        ]
       },
       phone: {
         name: "phone",
@@ -339,7 +337,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     closeIcon: '<svg width="12" height="13" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(-4087 108)"><g><path transform="translate(4087 -108)" fill="currentColor" d="M 14 1.41L 12.59 0L 7 5.59L 1.41 0L 0 1.41L 5.59 7L 0 12.59L 1.41 14L 7 8.41L 12.59 14L 14 12.59L 8.41 7L 14 1.41Z"></path></g></g></svg>',
     callbackStateIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>'
   };
-  d.prototype.init = function () {
+  d.prototype.init = function() {
     if (this._initialized) return !1;
     this.destroy();
     this.settings = b.extend({}, this.options);
@@ -350,13 +348,13 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     this._initialized = !0;
     this.$element.trigger("arcontactus.init")
   };
-  d.prototype.destroy = function () {
+  d.prototype.destroy = function() {
     if (!this._initialized) return !1;
     this.$element.html("");
     this._initialized = !1;
     this.$element.trigger("arcontactus.destroy")
   };
-  d.prototype._initCallbackBlock = function () {
+  d.prototype._initCallbackBlock = function() {
     var a = b("<div>", {
         class: "callback-countdown-block",
         style: this._colorStyle()
@@ -425,9 +423,9 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     a.append(g);
     this.$element.append(a)
   };
-  d.prototype._initCallbackFormFields = function (a) {
+  d.prototype._initCallbackFormFields = function(a) {
     var c = this;
-    b.each(c.settings.callbackFormFields, function (e) {
+    b.each(c.settings.callbackFormFields, function(e) {
       var d = b("<div>", {
           class: "arcu-form-group arcu-form-group-type-" + c.settings.callbackFormFields[e].type + " arcu-form-group-" + c.settings.callbackFormFields[e].name + (c.settings.callbackFormFields[e].required ?
             " arcu-form-group-required" : "")
@@ -457,7 +455,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       });
       g.attr("placeholder", c.settings.callbackFormFields[e].placeholder);
       "undefined" != typeof c.settings.callbackFormFields[e].maxlength && g.attr("maxlength", c.settings.callbackFormFields[e].maxlength);
-      "dropdown" == c.settings.callbackFormFields[e].type && b.each(c.settings.callbackFormFields[e].values, function (a) {
+      "dropdown" == c.settings.callbackFormFields[e].type && b.each(c.settings.callbackFormFields[e].values, function(a) {
         var d = c.settings.callbackFormFields[e].values[a],
           l = c.settings.callbackFormFields[e].values[a];
         "object" == typeof c.settings.callbackFormFields[e].values[a] &&
@@ -472,7 +470,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       a.append(d)
     })
   };
-  d.prototype._initPopups = function () {
+  d.prototype._initPopups = function() {
     var a = this,
       c = b("<div>", {
         class: "popups-block arcuAnimated"
@@ -480,7 +478,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       e = b("<div>", {
         class: "popups-list-container"
       });
-    b.each(this.popups, function () {
+    b.each(this.popups, function() {
       var c = b("<div>", {
           class: "arcu-popup",
           id: "arcu-popup-" + this.id
@@ -513,7 +511,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     c.append(e);
     this.$element.append(c)
   };
-  d.prototype._initMessengersBlock = function () {
+  d.prototype._initMessengersBlock = function() {
     var a = b("<div>", {
         class: "messangers-block arcuAnimated"
       }),
@@ -549,9 +547,9 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     a.append(c);
     this.$element.append(a)
   };
-  d.prototype._appendMessengerIcons = function (a) {
+  d.prototype._appendMessengerIcons = function(a) {
     var c = this;
-    b.each(this.settings.items, function (e) {
+    b.each(this.settings.items, function(e) {
       e = b("<li>", {});
       if ("callback" == this.href) var d = b("<div>", {
         class: "messanger call-back " + (this.class ? this.class : "")
@@ -569,7 +567,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
         target: this.target ? this.target : "_blank"
       }), this.onClick) {
         var h = this;
-        d.on("click", function (a) {
+        d.on("click", function(a) {
           h.onClick(a)
         })
       }
@@ -596,7 +594,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       a.append(e)
     })
   };
-  d.prototype._initMessageButton = function () {
+  d.prototype._initMessageButton = function() {
     var a = this,
       c = b("<div>", {
         class: "arcontactus-message-button",
@@ -622,7 +620,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       f = b("<div>", {
         class: "icons-line"
       });
-    b.each(this.settings.items, function (c) {
+    b.each(this.settings.items, function(c) {
       c = b("<span>", {
         style: a._colorStyle()
       });
@@ -645,7 +643,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     c.append(e).append(d).append(h).append(g).append(k).append(m);
     this.$element.append(c)
   };
-  d.prototype._initPrompt = function () {
+  d.prototype._initPrompt = function() {
     var a = b("<div>", {
         class: "arcontactus-prompt arcu-prompt-" + this.settings.promptPosition
       }),
@@ -661,73 +659,73 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     a.append(c).append(e);
     this.$element.append(a)
   };
-  d.prototype._initEvents = function () {
+  d.prototype._initEvents = function() {
     var a = this.$element,
       c = this;
-    a.find(".arcontactus-message-button").on("mousedown", function (a) {
+    a.find(".arcontactus-message-button").on("mousedown", function(a) {
       c.x = a.pageX;
       c.y = a.pageY
-    }).on("mouseup", function (a) {
+    }).on("mouseup", function(a) {
       if (c.settings.drag && a.pageX === c.x && a.pageY === c.y || !c.settings.drag) "regular" == c.settings.mode ? c._menuOpened || c._popupOpened || c._callbackOpened ? (c._menuOpened && c.closeMenu(),
       c._popupOpened && c.closePopup()) : c.openMenu() : c.openCallbackPopup(), a.preventDefault()
     });
-    this.settings.drag && (a.draggable(), a.get(0).addEventListener("touchmove", function (c) {
+    this.settings.drag && (a.draggable(), a.get(0).addEventListener("touchmove", function(c) {
       var b = c.targetTouches[0];
       a.get(0).style.left = b.pageX - 25 + "px";
       a.get(0).style.top = b.pageY - 25 + "px";
       c.preventDefault()
     }, !1));
-    b(document).on("click", function (a) {
+    b(document).on("click", function(a) {
       c.closeMenu();
       c.closePopup()
     });
-    a.on("click", function (a) {
+    a.on("click", function(a) {
       a.stopPropagation()
     });
-    a.find(".call-back").on("click", function () {
+    a.find(".call-back").on("click", function() {
       c.openCallbackPopup()
     });
     a.find(".arcu-popup-link").on("click",
-      function () {
+      function() {
         var a = b(this).data("id");
         c.openPopup(a)
       });
-    a.find(".arcu-header-close").on("click", function () {
+    a.find(".arcu-header-close").on("click", function() {
       c.closeMenu()
     });
-    a.find(".arcu-popup-close").on("click", function () {
+    a.find(".arcu-popup-close").on("click", function() {
       c.closePopup()
     });
-    a.find(".arcu-popup-back").on("click", function () {
+    a.find(".arcu-popup-back").on("click", function() {
       c.closePopup();
       c.openMenu()
     });
-    a.find(".callback-countdown-block-close").on("click", function () {
+    a.find(".callback-countdown-block-close").on("click", function() {
       null != c.countdown && (clearInterval(c.countdown), c.countdown = null);
       c.closeCallbackPopup()
     });
-    a.find(".arcontactus-prompt-close").on("click", function () {
+    a.find(".arcontactus-prompt-close").on("click", function() {
       c.hidePrompt()
     });
     a.find("#arcu-callback-form").on("submit",
-      function (b) {
+      function(b) {
         b.preventDefault();
         a.find(".callback-countdown-block-phone").addClass("ar-loading");
         c.settings.reCaptcha ? grecaptcha.execute(c.settings.reCaptchaKey, {
           action: c.settings.reCaptchaAction
-        }).then(function (b) {
+        }).then(function(b) {
           a.find(".ar-g-token").val(b);
           c.sendCallbackRequest()
         }) : c.sendCallbackRequest()
       });
-    setTimeout(function () {
+    setTimeout(function() {
       c._processHash()
     }, 500);
-    b(window).on("hashchange", function (a) {
+    b(window).on("hashchange", function(a) {
       c._processHash()
     })
   };
-  d.prototype._processHash = function () {
+  d.prototype._processHash = function() {
     switch (window.location.hash) {
       case "#callback-form":
       case "callback-form":
@@ -754,13 +752,13 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
         this.show()
     }
   };
-  d.prototype._callBackCountDownMethod = function () {
+  d.prototype._callBackCountDownMethod = function() {
     var a = this.settings.countdown,
       c = this.$element,
       b = this,
       d = 60;
     c.find(".callback-countdown-block-phone, .callback-countdown-block-timer").toggleClass("display-flex");
-    this.countdown = setInterval(function () {
+    this.countdown = setInterval(function() {
       --d;
       var e = a,
         f = d;
@@ -772,7 +770,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       0 === d && (d = 60, --a)
     }, 20)
   };
-  d.prototype.sendCallbackRequest = function () {
+  d.prototype.sendCallbackRequest = function() {
     var a = this,
       c = a.$element;
     this.$element.trigger("arcontactus.beforeSendCallbackRequest");
@@ -781,7 +779,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       type: "POST",
       dataType: "json",
       data: c.find("form").serialize(),
-      success: function (b) {
+      success: function(b) {
         a.settings.countdown && a._callBackCountDownMethod();
         c.find(".callback-countdown-block-phone").removeClass("ar-loading");
         if (b.success) a.settings.countdown || c.find(".callback-countdown-block-sorry, .callback-countdown-block-phone").toggleClass("display-flex");
@@ -791,62 +789,62 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
         } else alert(a.settings.errorMessage);
         a.$element.trigger("arcontactus.successCallbackRequest", b)
       },
-      error: function () {
+      error: function() {
         c.find(".callback-countdown-block-phone").removeClass("ar-loading");
         alert(a.settings.errorMessage);
         a.$element.trigger("arcontactus.errorCallbackRequest")
       }
     })
   };
-  d.prototype.show = function () {
+  d.prototype.show = function() {
     this.$element.addClass("active");
     this.$element.trigger("arcontactus.show")
   };
-  d.prototype.hide = function () {
+  d.prototype.hide = function() {
     this.$element.removeClass("active");
     this.$element.trigger("arcontactus.hide")
   };
-  d.prototype.openPopup = function (a) {
+  d.prototype.openPopup = function(a) {
     this.closeMenu();
     var c = this.$element;
     c.find("#arcu-popup-" + a).addClass("show-messageners-block");
     c.find("#arcu-popup-" + a).hasClass("popup-opened") || (this.stopAnimation(),
       c.addClass("popup-opened"), c.find("#arcu-popup-" + a).addClass(this.settings.menuInAnimationClass), c.find(".arcontactus-close").addClass("show-messageners-block"), c.find(".icons, .static").addClass("hide"), c.find(".pulsation").addClass("stop"), this._popupOpened = !0, this.$element.trigger("arcontactus.openPopup"))
   };
-  d.prototype.closePopup = function () {
+  d.prototype.closePopup = function() {
     var a = this.$element;
-    a.find(".arcu-popup").hasClass("show-messageners-block") && (setTimeout(function () {
+    a.find(".arcu-popup").hasClass("show-messageners-block") && (setTimeout(function() {
       a.removeClass("popup-opened")
     }, 150), a.find(".arcu-popup").removeClass(this.settings.menuInAnimationClass).addClass(this.settings.menuOutAnimationClass),
-      setTimeout(function () {
+      setTimeout(function() {
         a.removeClass("popup-opened")
       }, 150), a.find(".arcontactus-close").removeClass("show-messageners-block"), a.find(".icons, .static").removeClass("hide"), a.find(".pulsation").removeClass("stop"), this.startAnimation(), this._popupOpened = !1, this.$element.trigger("arcontactus.closeMenu"))
   };
-  d.prototype.openMenu = function () {
+  d.prototype.openMenu = function() {
     if ("callback" == this.settings.mode) return console.log("Widget in callback mode"), !1;
     var a = this.$element;
     a.find(".messangers-block").hasClass(this.settings.menuInAnimationClass) ||
     (this.stopAnimation(), a.addClass("open"), a.find(".messangers-block").addClass(this.settings.menuInAnimationClass), a.find(".arcontactus-close").addClass("show-messageners-block"), a.find(".icons, .static").addClass("hide"), a.find(".pulsation").addClass("stop"), this._menuOpened = !0, this.$element.trigger("arcontactus.openMenu"))
   };
-  d.prototype.closeMenu = function () {
+  d.prototype.closeMenu = function() {
     if ("callback" == this.settings.mode) return console.log("Widget in callback mode"), !1;
     var a = this.$element,
       c = this;
     a.find(".messangers-block").hasClass(this.settings.menuInAnimationClass) &&
-    (setTimeout(function () {
+    (setTimeout(function() {
       a.removeClass("open")
-    }, 150), a.find(".messangers-block").removeClass(this.settings.menuInAnimationClass).addClass(this.settings.menuOutAnimationClass), setTimeout(function () {
+    }, 150), a.find(".messangers-block").removeClass(this.settings.menuInAnimationClass).addClass(this.settings.menuOutAnimationClass), setTimeout(function() {
       a.find(".messangers-block").removeClass(c.settings.menuOutAnimationClass)
     }, 1E3), a.find(".arcontactus-close").removeClass("show-messageners-block"), a.find(".icons, .static").removeClass("hide"), a.find(".pulsation").removeClass("stop"), this.startAnimation(), this._menuOpened = !1, this.$element.trigger("arcontactus.closeMenu"))
   };
-  d.prototype.toggleMenu = function () {
+  d.prototype.toggleMenu = function() {
     var a = this.$element;
     this.hidePrompt();
     if (a.find(".callback-countdown-block").hasClass("display-flex")) return !1;
     a.find(".messangers-block").hasClass(this.settings.menuInAnimationClass) ? this.closeMenu() : this.openMenu();
     this.$element.trigger("arcontactus.toggleMenu")
   };
-  d.prototype.openCallbackPopup = function () {
+  d.prototype.openCallbackPopup = function() {
     var a = this.$element;
     a.addClass("opened");
     this.closeMenu();
@@ -859,7 +857,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     this._callbackOpened = !0;
     this.$element.trigger("arcontactus.openCallbackPopup")
   };
-  d.prototype.closeCallbackPopup = function () {
+  d.prototype.closeCallbackPopup = function() {
     var a = this.$element;
     a.removeClass("opened");
     a.find(".messangers-block").removeClass(this.settings.menuInAnimationClass);
@@ -872,7 +870,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     this._callbackOpened = !1;
     this.$element.trigger("arcontactus.closeCallbackPopup")
   };
-  d.prototype.startAnimation = function () {
+  d.prototype.startAnimation = function() {
     var a = this.$element,
       c = a.find(".icons-line"),
       b = a.find(".static"),
@@ -888,7 +886,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     this.stopAnimation();
     if (0 === this.settings.iconsAnimationSpeed) return !1;
     var m = this;
-    this._interval = setInterval(function () {
+    this._interval = setInterval(function() {
       0 === k && (c.parent().removeClass("hide"), b.addClass("hide"));
       var a = "translate(" + -(d * k + h) + "px, " + f + "px)";
       c.css({
@@ -899,7 +897,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       k++;
       if (k > g) {
         if (k > g + 1) {
-          if (m.settings.iconsAnimationPause) return m.stopAnimation(), setTimeout(function () {
+          if (m.settings.iconsAnimationPause) return m.stopAnimation(), setTimeout(function() {
             if (m._callbackOpened || m._menuOpened || m._popupOpened) return !1;
             m.startAnimation()
           }, m.settings.iconsAnimationPause), !1;
@@ -916,7 +914,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       }
     }, this.settings.iconsAnimationSpeed)
   };
-  d.prototype.stopAnimation = function () {
+  d.prototype.stopAnimation = function() {
     clearInterval(this._interval);
     var a = this.$element,
       b = a.find(".icons-line");
@@ -929,23 +927,23 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
       transform: "translate(-2px, 0px)"
     })
   };
-  d.prototype.showPrompt = function (a) {
+  d.prototype.showPrompt = function(a) {
     var b = this.$element.find(".arcontactus-prompt");
     a && a.content && b.find(".arcontactus-prompt-inner").html(a.content);
     b.addClass("active");
     this.$element.trigger("arcontactus.showPrompt")
   };
-  d.prototype.hidePrompt = function () {
+  d.prototype.hidePrompt = function() {
     this.$element.find(".arcontactus-prompt").removeClass("active");
     this.$element.trigger("arcontactus.hidePrompt")
   };
-  d.prototype.showPromptTyping = function () {
+  d.prototype.showPromptTyping = function() {
     this.$element.find(".arcontactus-prompt").find(".arcontactus-prompt-inner").html("");
     this._insertPromptTyping();
     this.showPrompt({});
     this.$element.trigger("arcontactus.showPromptTyping")
   };
-  d.prototype._insertPromptTyping = function () {
+  d.prototype._insertPromptTyping = function() {
     var a = this.$element.find(".arcontactus-prompt-inner"),
       c = b("<div>", {
         class: "arcontactus-prompt-typing"
@@ -957,19 +955,19 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     a.append(c)
   };
   d.prototype.hidePromptTyping =
-    function () {
+    function() {
       this.$element.find(".arcontactus-prompt").removeClass("active");
       this.$element.trigger("arcontactus.hidePromptTyping")
     };
-  d.prototype._backgroundStyle = function () {
+  d.prototype._backgroundStyle = function() {
     return "background-color: " + this.settings.theme
   };
-  d.prototype._colorStyle = function () {
+  d.prototype._colorStyle = function() {
     return "color: " + this.settings.theme
   };
-  b.fn.contactUs = function (a) {
+  b.fn.contactUs = function(a) {
     var c = Array.prototype.slice.call(arguments, 1);
-    return this.each(function () {
+    return this.each(function() {
       var e = b(this),
         l = e.data("ar.contactus");
       l || (l = new d(this, "object" == typeof a && a), e.data("ar.contactus", l));
@@ -980,9 +978,9 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
   b.fn.contactUs.Constructor = d
 })(jQuery);
 
-!function (e) {
+! function(e) {
   "function" == typeof define && define.amd ? define(["jquery"], e) : e("object" == typeof exports ? require("jquery") : jQuery)
-}(function (e) {
+}(function(e) {
   var t, n = navigator.userAgent,
     a = /iphone/i.test(n),
     i = /chrome/i.test(n),
@@ -997,19 +995,19 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
     dataName: "rawMaskFn",
     placeholder: "_"
   }, e.fn.extend({
-    caret: function (e, t) {
+    caret: function(e, t) {
       var n;
-      if (0 !== this.length && !this.is(":hidden")) return "number" == typeof e ? (t = "number" == typeof t ? t : e, this.each(function () {
+      if (0 !== this.length && !this.is(":hidden")) return "number" == typeof e ? (t = "number" == typeof t ? t : e, this.each(function() {
         this.setSelectionRange ? this.setSelectionRange(e, t) : this.createTextRange && ((n = this.createTextRange()).collapse(!0), n.moveEnd("character", t), n.moveStart("character", e), n.select())
       })) : (this[0].setSelectionRange ? (e = this[0].selectionStart, t = this[0].selectionEnd) : document.selection && document.selection.createRange && (n = document.selection.createRange(), e = 0 - n.duplicate().moveStart("character", -1e5), t = e + n.text.length), {
         begin: e,
         end: t
       })
     },
-    arCuUnmask: function () {
+    arCuUnmask: function() {
       return this.trigger("arCuUnmask")
     },
-    arCuMask: function (n, o) {
+    arCuMask: function(n, o) {
       var c, l, u, f, s, h, g;
       if (!n && this.length > 0) {
         var m = e(this[0]).data(e.mask.dataName);
@@ -1019,9 +1017,9 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
         autoclear: e.mask.autoclear,
         placeholder: e.mask.placeholder,
         completed: null
-      }, o), c = e.mask.definitions, l = [], u = h = n.length, f = null, e.each(n.split(""), function (e, t) {
+      }, o), c = e.mask.definitions, l = [], u = h = n.length, f = null, e.each(n.split(""), function(e, t) {
         "?" == t ? (h--, u = e) : c[t] ? (l.push(new RegExp(c[t])), null === f && (f = l.length - 1), u > e && (s = l.length - 1)) : l.push(null)
-      }), this.trigger("arCuUnmask").each(function () {
+      }), this.trigger("arCuUnmask").each(function() {
         function m() {
           if (o.completed) {
             for (var e = f; s >= e; e++)
@@ -1035,7 +1033,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
         }
 
         function p(e) {
-          for (; ++e < h && !l[e];) ;
+          for (; ++e < h && !l[e];);
           return e
         }
 
@@ -1083,51 +1081,51 @@ $jscomp.polyfill("Array.prototype.find", function (b) {
         }
 
         var j = e(this),
-          R = e.map(n.split(""), function (e, t) {
+          R = e.map(n.split(""), function(e, t) {
             return "?" != e ? c[e] ? d(t) : e : void 0
           }),
           S = R.join(""),
           A = j.val();
-        j.data(e.mask.dataName, function () {
-          return e.map(R, function (e, t) {
+        j.data(e.mask.dataName, function() {
+          return e.map(R, function(e, t) {
             return l[t] && e != d(t) ? e : null
           }).join("")
-        }), j.one("arCuUnmask", function () {
+        }), j.one("arCuUnmask", function() {
           j.off(".mask").removeData(e.mask.dataName)
-        }).on("focus.mask", function () {
+        }).on("focus.mask", function() {
           var e;
-          j.prop("readonly") || (clearTimeout(t), A = j.val(), e = x(), t = setTimeout(function () {
+          j.prop("readonly") || (clearTimeout(t), A = j.val(), e = x(), t = setTimeout(function() {
             j.get(0) === document.activeElement && (y(), e == n.replace("?", "").length ? j.caret(0, e) : j.caret(e))
           }, 10))
-        }).on("blur.mask", b).on("keydown.mask", function (e) {
+        }).on("blur.mask", b).on("keydown.mask", function(e) {
           if (!j.prop("readonly")) {
             var t, n, i, r = e.which || e.keyCode;
-            g = j.val(), 8 === r || 46 === r || a && 127 === r ? (n = (t = j.caret()).begin, (i = t.end) - n == 0 && (n = 46 !== r ? function (e) {
-              for (; --e >= 0 && !l[e];) ;
+            g = j.val(), 8 === r || 46 === r || a && 127 === r ? (n = (t = j.caret()).begin, (i = t.end) - n == 0 && (n = 46 !== r ? function(e) {
+              for (; --e >= 0 && !l[e];);
               return e
             }(n) : i = p(n - 1), i = 46 === r ? p(i) : i), k(n, i), v(n, i - 1), e.preventDefault()) : 13 === r ? b.call(this, e) : 27 === r && (j.val(A), j.caret(0, x()), e.preventDefault())
           }
-        }).on("keypress.mask", function (t) {
+        }).on("keypress.mask", function(t) {
           if (!j.prop("readonly")) {
             var n, a, i, o = t.which || t.keyCode,
               c = j.caret();
-            t.ctrlKey || t.altKey || t.metaKey || 32 > o || !o || 13 === o || (c.end - c.begin != 0 && (k(c.begin, c.end), v(c.begin, c.end - 1)), n = p(c.begin - 1), h > n && (a = String.fromCharCode(o), l[n].test(a)) && (function (e) {
+            t.ctrlKey || t.altKey || t.metaKey || 32 > o || !o || 13 === o || (c.end - c.begin != 0 && (k(c.begin, c.end), v(c.begin, c.end - 1)), n = p(c.begin - 1), h > n && (a = String.fromCharCode(o), l[n].test(a)) && (function(e) {
               var t, n, a, i;
               for (t = e, n = d(e); h > t; t++)
                 if (l[t]) {
                   if (a = p(t), i = R[t], R[t] = n, !(h > a && l[a].test(i))) break;
                   n = i
                 }
-            }(n), R[n] = a, y(), i = p(n), r ? setTimeout(function () {
+            }(n), R[n] = a, y(), i = p(n), r ? setTimeout(function() {
               e.proxy(e.fn.caret, j, i)()
             }, 0) : j.caret(i), c.begin <= s && m()), t.preventDefault())
           }
-        }).on("input.mask paste.mask", function () {
-          j.prop("readonly") || setTimeout(function () {
+        }).on("input.mask paste.mask", function() {
+          j.prop("readonly") || setTimeout(function() {
             var e = x(!0);
             j.caret(e), m()
           }, 0)
-        }), i && r && j.off("input.mask").on("input.mask", function () {
+        }), i && r && j.off("input.mask").on("input.mask", function() {
           var e = j.val(),
             t = j.caret();
           if (g && g.length && g.length > e.length) {
@@ -1172,13 +1170,15 @@ var arcItems = [];
 var Tawk_API = Tawk_API || {};
 var Tawk_LoadStart = new Date();
 
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
   jQuery('#arcontactus').remove();
-  var $arcuWidget = jQuery('<div>', {id: 'arcontactus'});
+  var $arcuWidget = jQuery('<div>', {
+    id: 'arcontactus'
+  });
   jQuery('body').append($arcuWidget);
   arCuClosedCookie = arCuGetCookie('arcumenu-closed');
 
-  jQuery('#arcontactus').on('arcontactus.init', function () {
+  jQuery('#arcontactus').on('arcontactus.init', function() {
     jQuery.mask.definitions['#'] = "[0-9]";
     jQuery('#arcontactus .arcu-field-phone').arCuMask('+XXX-XX-XXX-XX-XX');
     if (arCuClosedCookie) {
@@ -1187,11 +1187,11 @@ window.addEventListener('load', function () {
     arCuShowMessages();
   });
 
-  jQuery('#arcontactus').on('arcontactus.closeMenu', function () {
+  jQuery('#arcontactus').on('arcontactus.closeMenu', function() {
     arCuCreateCookie('arcumenu-closed', 1, 1);
   });
 
-  jQuery('#arcontactus').on('arcontactus.openMenu', function () {
+  jQuery('#arcontactus').on('arcontactus.openMenu', function() {
     clearTimeout(_arCuTimeOut);
     if (!arCuPromptClosed) {
       arCuPromptClosed = true;
@@ -1199,7 +1199,7 @@ window.addEventListener('load', function () {
     }
   });
 
-  jQuery('#arcontactus').on('arcontactus.openCallbackPopup', function () {
+  jQuery('#arcontactus').on('arcontactus.openCallbackPopup', function() {
     clearTimeout(_arCuTimeOut);
     if (!arCuPromptClosed) {
       arCuPromptClosed = true;
@@ -1207,20 +1207,20 @@ window.addEventListener('load', function () {
     }
   });
 
-  jQuery('#arcontactus').on('arcontactus.hidePrompt', function () {
+  jQuery('#arcontactus').on('arcontactus.hidePrompt', function() {
     clearTimeout(_arCuTimeOut);
     if (arCuClosedCookie != "1") {
       arCuClosedCookie = "1";
     }
   });
 
-  jQuery('#arcontactus').on('arcontactus.successCallbackRequest', function () {
-    closePopupTimeout = setTimeout(function () {
+  jQuery('#arcontactus').on('arcontactus.successCallbackRequest', function() {
+    closePopupTimeout = setTimeout(function() {
       jQuery('#arcontactus').contactUs('closeCallbackPopup');
     }, 10000);
   });
 
-  jQuery('#arcontactus').on('arcontactus.closeCallbackPopup', function () {
+  jQuery('#arcontactus').on('arcontactus.closeCallbackPopup', function() {
     clearTimeout(closePopupTimeout);
   });
 
@@ -1228,7 +1228,7 @@ window.addEventListener('load', function () {
     if (isMobileRequest == true || enableFacebookSDK == 'false') {
       var arcItem = {};
       arcItem.id = 'msg-item-1';
-      arcItem.onClick = function (e) {
+      arcItem.onClick = function(e) {
         ga('send', 'event', 'contact', 'click', 'Facebook link');
       }
       arcItem.class = 'msg-item-facebook-messenger';
@@ -1241,7 +1241,7 @@ window.addEventListener('load', function () {
     } else {
       var arcItem = {};
       arcItem.id = 'msg-item-2';
-      arcItem.onClick = function (e) {
+      arcItem.onClick = function(e) {
         e.preventDefault();
         jQuery('#arcontactus').contactUs('closeMenu');
         if (typeof FB == 'undefined' || typeof FB.CustomerChat == 'undefined') {
@@ -1266,7 +1266,7 @@ window.addEventListener('load', function () {
   if (enableWhatsApp) {
     var arcItem = {};
     arcItem.id = 'msg-item-3';
-    arcItem.onClick = function (e) {
+    arcItem.onClick = function(e) {
       ga('send', 'event', 'contact', 'click', 'WhatsApp');
     }
     arcItem.class = 'msg-item-whatsapp';
@@ -1319,7 +1319,7 @@ window.addEventListener('load', function () {
   if (enableLiveChat) {
     var arcItem = {};
     arcItem.id = 'msg-item-7';
-    arcItem.onClick = function (e) {
+    arcItem.onClick = function(e) {
       e.preventDefault();
       jQuery('#arcontactus').contactUs('closeMenu');
       if (typeof lh_inst == 'undefined') {
@@ -1340,7 +1340,7 @@ window.addEventListener('load', function () {
   if (enableTawkTo) {
     var arcItem = {};
     arcItem.id = 'msg-item-8';
-    arcItem.onClick = function (e) {
+    arcItem.onClick = function(e) {
       e.preventDefault();
       jQuery('#arcontactus').contactUs('closeMenu');
       if (typeof Tawk_API == 'undefined') {
@@ -1350,7 +1350,7 @@ window.addEventListener('load', function () {
       jQuery('#arcontactus').contactUs('hide');
       Tawk_API.showWidget();
       Tawk_API.maximize();
-      tawkToInterval = setInterval(function () {
+      tawkToInterval = setInterval(function() {
         checkTawkIsOpened();
       }, 100);
     }
@@ -1374,7 +1374,7 @@ window.addEventListener('load', function () {
     arcItem.icon = '<i class="fas fa-info"></i>';
     arcItem.color = '#A73C21';
     arcItems.push(arcItem);
-    jQuery('#arcontactus').on('arcontactus.successCallbackRequest', function () {
+    jQuery('#arcontactus').on('arcontactus.successCallbackRequest', function() {
       ga('send', 'event', 'contact', 'click', 'CallBack request');
     });
   }
@@ -1382,7 +1382,7 @@ window.addEventListener('load', function () {
   if (enableCallBackRequest) {
     var arcItem = {};
     arcItem.id = 'msg-item-9';
-    arcItem.onClick = function (e) {
+    arcItem.onClick = function(e) {
       ga('send', 'event', 'contact', 'click', 'CallBack request');
     }
     arcItem.class = 'msg-item-phone';
@@ -1397,7 +1397,7 @@ window.addEventListener('load', function () {
   if (enableZoho) {
     var arcItem = {};
     arcItem.id = 'msg-item-11';
-    arcItem.onClick = function (e) {
+    arcItem.onClick = function(e) {
       e.preventDefault();
       jQuery('#arcontactus').contactUs('closeMenu');
       if (typeof $zoho == 'undefined') {
@@ -1482,7 +1482,7 @@ window.addEventListener('load', function () {
     theme: '#00aeef',
     buttonText: "Liên hệ",
     buttonSize: 'small', //(large|medium|small)
-    menuSize: 'small',   //(large|small)
+    menuSize: 'small', //(large|small)
     phonePlaceholder: '+XXX-XX-XXX-XX-XX',
     callbackSubmitText: 'Waiting for call',
     errorMessage: 'Connection error. Please refresh the page and try again.',
@@ -1544,7 +1544,8 @@ window.addEventListener('load', function () {
           "20:00",
           "21:00",
           "22:00",
-          "23:00"]
+          "23:00"
+        ]
       },
       phone: {
         name: "phone",
@@ -1566,7 +1567,7 @@ window.addEventListener('load', function () {
   };
   jQuery('#arcontactus').contactUs(arcuOptions);
 
-  Tawk_API.onLoad = function () {
+  Tawk_API.onLoad = function() {
     if (enableTawkTo) {
       if (!Tawk_API.isChatOngoing()) {
         Tawk_API.hideWidget();
@@ -1576,24 +1577,24 @@ window.addEventListener('load', function () {
     }
   };
 
-  Tawk_API.onChatMinimized = function () {
+  Tawk_API.onChatMinimized = function() {
     if (enableTawkTo) {
       Tawk_API.hideWidget();
-      setTimeout(function () {
+      setTimeout(function() {
         Tawk_API.hideWidget();
       }, 100);
       jQuery('#arcontactus').contactUs('show');
     }
   };
 
-  Tawk_API.onChatEnded = function () {
+  Tawk_API.onChatEnded = function() {
     if (enableTawkTo) {
       Tawk_API.hideWidget();
       jQuery('#arcontactus').contactUs('show');
     }
   };
 
-  (function () {
+  (function() {
     if (enableTawkTo) {
       var s1 = document.createElement("script");
       var s0 = document.getElementsByTagName("script")[0];
@@ -1607,26 +1608,26 @@ window.addEventListener('load', function () {
   if (typeof FB == 'undefined' || typeof FB.CustomerChat == 'undefined') {
     console.warn('Facebook customer chat integration is disabled in module configuration');
   } else {
-    FB.Event.subscribe('customerchat.dialogHide', function () {
+    FB.Event.subscribe('customerchat.dialogHide', function() {
       jQuery('#alotool-fb-chat').removeClass('active');
       jQuery('#arcontactus').contactUs('show');
     });
 
-    FB.Event.subscribe('customerchat.dialogShow', function () {
+    FB.Event.subscribe('customerchat.dialogShow', function() {
       jQuery('#alotool-fb-chat').addClass('active');
       jQuery('#arcontactus').contactUs('hide');
     });
   }
 
   if (enableLiveChat) {
-    lh_inst.chatClosedCallback = function () {
+    lh_inst.chatClosedCallback = function() {
       jQuery('#arcontactus').contactUs('show');
       clearInterval(LHCInterval);
     };
 
-    lh_inst.chatOpenedCallback = function () {
+    lh_inst.chatOpenedCallback = function() {
       jQuery('#arcontactus').contactUs('hide');
-      LHCInterval = setInterval(function () {
+      LHCInterval = setInterval(function() {
         checkLHCisOpened();
       }, 100);
     };
@@ -1654,7 +1655,7 @@ LHCChatOptions.opt = {
   popup_width: 500
 };
 
-(function () {
+(function() {
   if (enableLiveChat) {
     var po = document.createElement('script');
     po.type = 'text/javascript';
@@ -1682,8 +1683,7 @@ if (enableZoho) {
   $zoho.salesiq = $zoho.salesiq || {
     widgetcode: "b2a99ecc2a580a9bd1c14a4ed7f228133025108d46c98f17e984e170ee763119",
     values: {},
-    ready: function () {
-    }
+    ready: function() {}
   };
   var d = document;
   s = d.createElement("script");
@@ -1694,12 +1694,12 @@ if (enableZoho) {
   t = d.getElementsByTagName("script")[0];
   t.parentNode.insertBefore(s, t);
   d.write("<div id='zsiqwidget'></div>");
-  $zoho.salesiq.ready = function () {
+  $zoho.salesiq.ready = function() {
     $zoho.salesiq.floatbutton.visible("hide");
-    $zoho.salesiq.floatwindow.minimize(function () {
+    $zoho.salesiq.floatwindow.minimize(function() {
       jQuery('#arcontactus').contactUs('show');
     });
-    $zoho.salesiq.floatwindow.close(function () {
+    $zoho.salesiq.floatwindow.close(function() {
       jQuery('#arcontactus').contactUs('show');
     });
   };
