@@ -1481,8 +1481,8 @@ window.addEventListener('load', function() {
     countdown: 0,
     theme: '#00aeef',
     buttonText: "Liên hệ",
-    buttonSize: 'small', //(large|medium|small)
-    menuSize: 'small', //(large|small)
+    buttonSize: 'small',  //(large|medium|small)
+    menuSize: 'small',    //(large|small)
     phonePlaceholder: '+XXX-XX-XXX-XX-XX',
     callbackSubmitText: 'Waiting for call',
     errorMessage: 'Connection error. Please refresh the page and try again.',
