@@ -5,7 +5,7 @@
  * Issues: https://github.com/nicinabox/shortcode.js/issues
  */
 /* jshint strict: false, unused: false */
-var Shortcode = function (el, tags) {
+var Shortcode = function(el, tags) {
   if (!el) {
     return;
   }
@@ -26,7 +26,7 @@ var Shortcode = function (el, tags) {
   this.replaceNodes();
 };
 
-Shortcode.prototype.matchTags = function () {
+Shortcode.prototype.matchTags = function() {
   var html = this.el.outerHTML,
     instances,
     match, re, contents, regex, tag, options;
@@ -64,11 +64,11 @@ Shortcode.prototype.matchTags = function () {
   }
 };
 
-Shortcode.prototype.convertMatchesToNodes = function () {
+Shortcode.prototype.convertMatchesToNodes = function() {
   var html = this.el.innerHTML,
     excludes, re, replacer;
 
-  replacer = function (match, p1, p2, p3, p4, offset, string) {
+  replacer = function(match, p1, p2, p3, p4, offset, string) {
     if (p1) {
       return match;
     } else {
@@ -88,12 +88,12 @@ Shortcode.prototype.convertMatchesToNodes = function () {
   this.el.innerHTML = html;
 };
 
-Shortcode.prototype.replaceNodes = function () {
+Shortcode.prototype.replaceNodes = function() {
   var self = this,
     html, match, result, done, node, fn, replacer,
     nodes = this.el.querySelectorAll('.sc-node');
 
-  replacer = function (result) {
+  replacer = function(result) {
     if (result.jquery) {
       result = result[0];
     }
@@ -118,7 +118,7 @@ Shortcode.prototype.replaceNodes = function () {
   }
 };
 
-Shortcode.prototype.parseCallbackResult = function (result) {
+Shortcode.prototype.parseCallbackResult = function(result) {
   var container, fragment, children;
 
   switch (typeof result) {
@@ -156,7 +156,7 @@ Shortcode.prototype.parseCallbackResult = function (result) {
   return result;
 };
 
-Shortcode.prototype.parseOptions = function (stringOptions) {
+Shortcode.prototype.parseOptions = function(stringOptions) {
   var options = {},
     set;
   if (!stringOptions) {
@@ -176,11 +176,11 @@ Shortcode.prototype.parseOptions = function (stringOptions) {
   return options;
 };
 
-Shortcode.prototype.escapeTagRegExp = function (regex) {
+Shortcode.prototype.escapeTagRegExp = function(regex) {
   return regex.replace(/[\[\]\/]/g, '\\$&');
 };
 
-Shortcode.prototype.template = function (s, d) {
+Shortcode.prototype.template = function(s, d) {
   for (var p in d) {
     s = s.replace(new RegExp('{' + p + '}', 'g'), d[p]);
   }
@@ -188,15 +188,15 @@ Shortcode.prototype.template = function (s, d) {
 };
 
 // Polyfill .trim()
-String.prototype.trim = String.prototype.trim || function () {
+String.prototype.trim = String.prototype.trim || function() {
   return this.replace(/^\s+|\s+$/g, '');
 };
 
 // jQuery plugin wrapper
 if (window.jQuery) {
   var pluginName = 'shortcode';
-  $.fn[pluginName] = function (tags) {
-    this.each(function () {
+  $.fn[pluginName] = function(tags) {
+    this.each(function() {
       if (!$.data(this, pluginName)) {
         $.data(this, pluginName, new Shortcode(this, tags));
       }
