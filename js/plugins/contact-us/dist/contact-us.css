@@ -3334,7 +3334,9 @@
 }
 
 @media (max-width: 428px) {
-  .arcontactus-widget.arcontactus-message .messangers-block, .arcontactus-widget.arcontactus-message .callback-countdown-block, .arcontactus-widget.arcontactus-message .arcu-popup {
+  .arcontactus-widget.arcontactus-message .messangers-block,
+  .arcontactus-widget.arcontactus-message .callback-countdown-block,
+  .arcontactus-widget.arcontactus-message .arcu-popup {
     bottom: -52px;
   }
 }
