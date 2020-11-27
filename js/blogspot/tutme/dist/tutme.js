@@ -9,9 +9,9 @@ var configDefault = {
   entryImage: "//1.bp.blogspot.com/-zia8weibM-w/Xt--HwlUn0I/AAAAAAAAACE/9yVPHBaeLrg_dKA_vXe8sq0Y7CeKX_htQCK4BGAsYHg/s72-c/entry-image-001.png",
 };
 
-!function ($) {
-  $["fn"]["lazyalotool"] = function () {
-    return this["each"](function () {
+! function($) {
+  $["fn"]["lazyalotool"] = function() {
+    return this["each"](function() {
       var obj = $(this),
         imagePlaceholder = obj["attr"]("data-image"),
         objW = Math["round"](obj["width"]()),
@@ -36,7 +36,7 @@ var configDefault = {
           offsetTop = obj["offset"]()["top"];
         if (wScrollTop + wHeight > offsetTop) {
           var image = new Image();
-          image["onload"] = function () {
+          image["onload"] = function() {
             obj["attr"]("style", "background-image:url(" + this["src"] + ")")["addClass"]("lazy-alotool");
           }, image["src"] = imageLoad;
         }
@@ -49,24 +49,24 @@ var configDefault = {
 
 $("#alotool-main-menu")["menuify"]();
 $("#alotool-main-menu .widget")["addClass"]("show-menu");
-$(".search-toggle")["on"]("click", function () {
+$(".search-toggle")["on"]("click", function() {
   $("body")["toggleClass"]("search-active");
 });
-$(".blog-posts-title a.more,.related-title a.more")["each"](function () {
+$(".blog-posts-title a.more,.related-title a.more")["each"](function() {
   var obj = $(this),
     _showMoreText = showMoreText;
   if (_showMoreText != "") {
     obj["text"](_showMoreText);
   }
 });
-$(".follow-by-email-text")["each"](function () {
+$(".follow-by-email-text")["each"](function() {
   var obj = $(this),
     _followByEmailText = followByEmailText;
   if (_followByEmailText != "") {
     obj["text"](_followByEmailText);
   }
 });
-$(".post-body strike")["each"](function () {
+$(".post-body strike")["each"](function() {
   var obj = $(this),
     textValue = obj["text"]()["trim"]();
   if (textValue == "$ads={1}") {
@@ -76,31 +76,31 @@ $(".post-body strike")["each"](function () {
     obj["replaceWith"]("<div id=\"new-after-ad\"/>");
   }
 });
-$("#new-before-ad")["each"](function () {
+$("#new-before-ad")["each"](function() {
   var obj = $(this);
   if (obj["length"]) {
     $("#before-ad")["appendTo"](obj);
   }
 });
-$("#new-after-ad")["each"](function () {
+$("#new-after-ad")["each"](function() {
   var obj = $(this);
   if (obj["length"]) {
     $("#after-ad")["appendTo"](obj);
   }
 });
-$("#main-before-ad .widget")["each"](function () {
+$("#main-before-ad .widget")["each"](function() {
   var obj = $(this);
   if (obj["length"]) {
     obj["appendTo"]($("#before-ad"));
   }
 });
-$("#main-after-ad .widget")["each"](function () {
+$("#main-after-ad .widget")["each"](function() {
   var obj = $(this);
   if (obj["length"]) {
     obj["appendTo"]($("#after-ad"));
   }
 });
-$("#social-counter ul.social-icons li a")["each"](function () {
+$("#social-counter ul.social-icons li a")["each"](function() {
   var obj = $(this),
     elCount = obj["find"](".count"),
     textRaw = obj["data"]("content")["trim"](),
@@ -110,14 +110,14 @@ $("#social-counter ul.social-icons li a")["each"](function () {
   obj["attr"]("href", href);
   elCount["text"](text);
 });
-$(".avatar-image-container img")["attr"]("src", function (a, b) {
+$(".avatar-image-container img")["attr"]("src", function(a, b) {
   b = b["replace"]("//img1.blogblog.com/img/blank.gif", configDefault.avatar);
   b = b["replace"]("//img1.blogblog.com/img/b16-rounded.gif", configDefault.avatar);
   b = b["replace"]("//resources.blogblog.com/img/blank.gif", configDefault.avatar);
   b = b["replace"]("//lh3.googleusercontent.com/zFdxGE77vvD2w5xHy6jkVuElKv-U9_9qLkRYK8OnbDeJPtjSZ82UPq5w6hJ-SA=s35", configDefault.avatar);
   return b;
 });
-$(".post-body a")["each"](function () {
+$(".post-body a")["each"](function() {
   var obj = $(this),
     txtRaw = obj["text"]()["trim"](),
     txtArray = txtRaw["split"]("/"),
@@ -136,7 +136,7 @@ $(".post-body a")["each"](function () {
     }
   }
 });
-$(".post-body strike")["each"](function () {
+$(".post-body strike")["each"](function() {
   var obj = $(this),
     txtRaw = obj["text"]()["trim"](),
     txtHtml = obj["html"]();
@@ -169,7 +169,7 @@ $(".post-body strike")["each"](function () {
     obj["replaceWith"]("<pre class=\"code-box short-b\">" + txtHtml + "</pre>");
   }
   var b = $(".post-body .short-b")["find"]("b");
-  b["each"](function () {
+  b["each"](function() {
     var obj1 = $(this),
       txt = obj1["text"]()["trim"]();
     if (txt["match"]("alert-success") || txt["match"]("alert-info") || txt["match"]("alert-warning") || txt["match"]("alert-error") || txt["match"]("code-box")) {
@@ -177,7 +177,7 @@ $(".post-body strike")["each"](function () {
     }
   });
 });
-$(".share-links .window-alotool,.entry-share .window-alotool")["on"]("click", function () {
+$(".share-links .window-alotool,.entry-share .window-alotool")["on"]("click", function() {
   var obj = $(this),
     dataURL = obj["data"]("url"),
     dataWidth = obj["data"]("width"),
@@ -189,14 +189,14 @@ $(".share-links .window-alotool,.entry-share .window-alotool")["on"]("click", fu
     r = window["open"](dataURL, "_blank", "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=" + dataWidth + ",height=" + dataHeight + ",left=" + l + ",top=" + t);
   r["focus"]();
 });
-$(".share-links")["each"](function () {
+$(".share-links")["each"](function() {
   var obj = $(this),
     elA = obj["find"](".show-hid a");
-  elA["on"]("click", function () {
+  elA["on"]("click", function() {
     obj["toggleClass"]("show-hidden");
   });
 });
-$(".about-author .author-description span a")["each"](function () {
+$(".about-author .author-description span a")["each"](function() {
   var obj = $(this),
     txtRaw = obj["text"]()["trim"](),
     href = obj["attr"]("href");
@@ -222,7 +222,7 @@ function beforeLoader() {
   return "<div class=\"spinner-accordion spinner-accordion-mh\"> <div class=\"rect1\"></div> <div class=\"rect2\"></div> <div class=\"rect3\"></div> <div class=\"rect4\"></div> <div class=\"rect5\"></div> </div>";
 }
 
-$("#alotool-main-menu li")["each"](function (label) {
+$("#alotool-main-menu li")["each"](function(label) {
   var _obj = $(this),
     obj = _obj,
     elA = _obj["find"]("a"),
@@ -235,7 +235,7 @@ $("#alotool-main-menu li")["each"](function (label) {
   }
   ajaxMega(obj, "msimple", 5, label, textToLowerCase);
 });
-$("#featured .HTML .widget-content")["each"](function (label, color) {
+$("#featured .HTML .widget-content")["each"](function(label, color) {
   var obj = $(this),
     textRaw = obj["text"]()["trim"](),
     textToLowerCase = textRaw["toLowerCase"](),
@@ -244,7 +244,7 @@ $("#featured .HTML .widget-content")["each"](function (label, color) {
   textArray[2] != undefined ? color = regxify(textArray[2]) : color = "";
   ajaxFeatured(obj, "featured", 4, label, textToLowerCase, color);
 });
-$(".block-posts .HTML .widget-content")["each"](function (results, label, type, color) {
+$(".block-posts .HTML .widget-content")["each"](function(results, label, type, color) {
   var obj = $(this),
     textRaw = obj["text"]()["trim"](),
     textToLowerCase = textRaw["toLowerCase"](),
@@ -255,7 +255,7 @@ $(".block-posts .HTML .widget-content")["each"](function (results, label, type, 
   textArray[4] != undefined ? color = regxify(textArray[4]) : color = "";
   ajaxBlock(obj, type, results, label, textToLowerCase, color);
 });
-$(".widget-ready .HTML .widget-content")["each"](function (results, label, type) {
+$(".widget-ready .HTML .widget-content")["each"](function(results, label, type) {
   var obj = $(this),
     textRaw = obj["text"]()["trim"](),
     textToLowerCase = textRaw["toLowerCase"](),
@@ -265,7 +265,7 @@ $(".widget-ready .HTML .widget-content")["each"](function (results, label, type)
   textArray[3] != undefined ? type = regxify(textArray[3]) : type = "";
   ajaxWidget(obj, type, results, label, textToLowerCase);
 });
-$(".related-content")["each"](function () {
+$(".related-content")["each"](function() {
   var obj = $(this),
     label = obj["find"](".related-tag")["attr"]("data-label"),
     results = relatedPostsNum;
@@ -386,7 +386,8 @@ function getPostMeta(postAuthor, postDate) {
     _date = "<div class=\"entry-meta\">" + postDate + "</div>";
   }
   var postMeta = [authorDate,
-    _date];
+    _date
+  ];
   return postMeta;
 }
 
@@ -450,15 +451,14 @@ function getAjax(obj, type, results, label, color) {
     case "related":
       if (label == undefined) {
         label = "geterror404"
-      }
-      ;
+      };
       var feedUrl = getFeedUrl(type, results, label);
       $["ajax"]({
         url: feedUrl,
         type: "GET",
         dataType: "json",
         cache: true,
-        beforeSend: function (response) {
+        beforeSend: function(response) {
           var customStyle = getCustomStyle(type, label, color);
           switch (type) {
             case "featured":
@@ -489,7 +489,7 @@ function getAjax(obj, type, results, label, color) {
               break
           }
         },
-        success: function (response) {
+        success: function(response) {
           var elStart = "";
           switch (type) {
             case "msimple":
@@ -518,8 +518,7 @@ function getAjax(obj, type, results, label, color) {
             case "related":
               elStart = "<div class=\"related-posts\">";
               break;
-          }
-          ;
+          };
           var entries = response["feed"]["entry"];
           if (entries != undefined) {
             for (var i = 0, _entries = entries; i < _entries["length"]; i++) {
@@ -545,8 +544,7 @@ function getAjax(obj, type, results, label, color) {
                     default:
                       elEnd += "<article class=\"featured-item post item-" + i + "\"><div class=\"featured-item-inner\"><a class=\"entry-image-link before-mask\" href=\"" + postLink + "\"><span class=\"entry-thumb\" data-image=\"" + postImage + "\"/></a>" + postLabel + "<div class=\"entry-header entry-info\"><h2 class=\"entry-title\"><a href=\"" + postLink + "\">" + postTitle + "</a></h2>" + postMeta[1] + "</div></div></article>";
                       break;
-                  }
-                  ;
+                  };
                   break;
                 case "block":
                   switch (i) {
@@ -556,8 +554,7 @@ function getAjax(obj, type, results, label, color) {
                     default:
                       elEnd += "<article class=\"block-item item-" + i + "\"><a class=\"entry-image-link\" href=\"" + postLink + "\"><span class=\"entry-thumb\" data-image=\"" + postImage + "\"/></a><div class=\"entry-header\"><h2 class=\"entry-title\"><a href=\"" + postLink + "\">" + postTitle + "</a></h2>" + postMeta[1] + "</div></article>";
                       break;
-                  }
-                  ;
+                  };
                   break;
                 case "col-left":
                   ;
@@ -569,8 +566,7 @@ function getAjax(obj, type, results, label, color) {
                     default:
                       elEnd += "<article class=\"column-item item-" + i + "\"><a class=\"entry-image-link\" href=\"" + postLink + "\"><span class=\"entry-thumb\" data-image=\"" + postImage + "\"/></a><div class=\"entry-header\"><h2 class=\"entry-title\"><a href=\"" + postLink + "\">" + postTitle + "</a></h2>" + postMeta[1] + "</div></article>";
                       break;
-                  }
-                  ;
+                  };
                   break;
                 case "grid":
                   elEnd += "<article class=\"grid-item item-" + i + "\"><div class=\"entry-image\"><a class=\"entry-image-link\" href=\"" + postLink + "\"><span class=\"entry-thumb\" data-image=\"" + postImage + "\"/></a></div><div class=\"entry-header\"><h2 class=\"entry-title\"><a href=\"" + postLink + "\">" + postTitle + "</a></h2>" + postMeta[1] + "</div></article>";
@@ -587,14 +583,12 @@ function getAjax(obj, type, results, label, color) {
                     default:
                       elEnd += "<article class=\"custom-item item-" + i + "\"><a class=\"entry-image-link\" href=\"" + postLink + "\"><span class=\"entry-thumb\" data-image=\"" + postImage + "\"/></a><div class=\"entry-header\"><h2 class=\"entry-title\"><a href=\"" + postLink + "\">" + postTitle + "</a></h2>" + postMeta[1] + "</div></article>";
                       break;
-                  }
-                  ;
+                  };
                   break;
                 case "related":
                   elEnd += "<article class=\"related-item post item-" + i + "\"><div class=\"entry-image\"><a class=\"entry-image-link\" href=\"" + postLink + "\"><span class=\"entry-thumb\" data-image=\"" + postImage + "\"/></a></div><div class=\"entry-header\"><h2 class=\"entry-title\"><a href=\"" + postLink + "\">" + postTitle + "</a></h2>" + postMeta[1] + "</div></article>";
                   break;
-              }
-              ;
+              };
               elStart += elEnd
             }
           } else {
@@ -605,15 +599,13 @@ function getAjax(obj, type, results, label, color) {
               default:
                 elStart = msgError();
                 break;
-            }
-            ;
-          }
-          ;
+            };
+          };
           switch (type) {
             case "msimple":
               elStart += "</ul>";
               obj["append"](elStart)["addClass"]("msimple");
-              obj["find"]("a:first")["attr"]("href", function (a, s) {
+              obj["find"]("a:first")["attr"]("href", function(a, s) {
                 switch (label) {
                   case "recent":
                     s = s["replace"](s, "/search");
@@ -621,8 +613,7 @@ function getAjax(obj, type, results, label, color) {
                   default:
                     s = s["replace"](s, "/search/label/" + label);
                     break;
-                }
-                ;
+                };
                 return s;
               });
               break;
@@ -642,11 +633,10 @@ function getAjax(obj, type, results, label, color) {
               elStart += "</div>";
               obj["html"](elStart);
               break;
-          }
-          ;
+          };
           obj["find"]("span.entry-thumb")["lazyalotool"]();
         },
-        error: function () {
+        error: function() {
           switch (type) {
             case "msimple":
               obj["append"]("<ul>" + msgServerError() + "</ul>");
@@ -676,7 +666,7 @@ function ajaxFeatured(obj, type, results, label, textToLowerCase, color) {
       return getAjax(obj, type, results, label, color);
     } else {
       obj["html"](beforeLoader())["parent"]()["addClass"]("show-alotool");
-      setTimeout(function () {
+      setTimeout(function() {
         obj["html"](msgError());
       }, 500);
     }
@@ -692,8 +682,7 @@ function ajaxBlock(obj, type, results, label, textToLowerCase, color) {
         _showMoreText = temp;
       } else {
         _showMoreText = messages["showMore"];
-      }
-      ;
+      };
       obj["parent"]()["find"](".widget-title")["append"]("<a class=\"more\" href=\"/search/label/" + label + "\">" + _showMoreText + " <i class=\"fa fa-angle-double-right\" aria-hidden=\"true\"></i></a>");
       return getAjax(obj, type, results, label, color);
     } else {
@@ -719,7 +708,7 @@ function ajaxRelated(obj, type, results, label, color) {
 }
 
 //---------- COMMENTS SYSTEM ----------//
-$(".blog-post-comments")["each"](function () {
+$(".blog-post-comments")["each"](function() {
   var obj = $(this),
     _commentsSystem = commentsSystem,
     elComments = "<div class=\"fb-comments\" data-width=\"100%\" data-href=\"" + bloggerCurrentURL + "\" order_by=\"time\" data-numposts=\"5\"></div>",
@@ -743,49 +732,51 @@ $(".blog-post-comments")["each"](function () {
       obj["addClass"]("comments-system-default")["show"]();
       $(".entry-meta .entry-comments-link")["addClass"]("show");
       break;
-  }
-  ;
+  };
   var a = obj["find"](".comments .toplevel-thread > ol > .comment .comment-actions .comment-reply"),
     b = obj["find"](".comments .toplevel-thread > #top-continue");
-  a["on"]("click", function () {
+  a["on"]("click", function() {
     b["show"]();
   });
-  b["on"]("click", function () {
+  b["on"]("click", function() {
     b["hide"]();
   });
 });
 
-$(function () {
+$(function() {
   $(".index-post .entry-image-link .entry-thumb, .PopularPosts .entry-image-link .entry-thumb, .FeaturedPost .entry-image-link .entry-thumb,.about-author .author-avatar")["lazyalotool"]();
-  $(".mobile-logo")["each"](function () {
+  $(".mobile-logo")["each"](function() {
     var obj = $(this),
       a = $("#main-logo .header-widget a")["clone"]();
     a["find"]("#h1-tag")["remove"]();
     a["appendTo"](obj);
   });
-  $("#mobile-menu")["each"](function () {
-    var obj = $(this), a = $("#alotool-main-menu-nav")["clone"]();
+  $("#mobile-menu")["each"](function() {
+    var obj = $(this),
+      a = $("#alotool-main-menu-nav")["clone"]();
     a["attr"]("id", "main-mobile-nav");
     a["find"](".getMega, .mega-widget, .mega-tab")["remove"]();
     a["find"](".complex-tabs")["replaceWith"](a["find"](".complex-tabs > ul.select-tab")["attr"]("class", "sub-menu m-sub"));
-    a["find"](".mega-menu > a")["each"](function () {
-      var obj1 = $(this), b = obj1["attr"]("href")["trim"]()["toLowerCase"]();
+    a["find"](".mega-menu > a")["each"](function() {
+      var obj1 = $(this),
+        b = obj1["attr"]("href")["trim"]()["toLowerCase"]();
       if (b["match"]("getmega")) {
         obj1["attr"]("href", "/search");
       }
     });
-    a["find"](".mega-tabs ul li > a")["each"](function () {
-      var obj2 = $(this), c = obj2["text"]()["trim"]();
+    a["find"](".mega-tabs ul li > a")["each"](function() {
+      var obj2 = $(this),
+        c = obj2["text"]()["trim"]();
       obj2["attr"]("href", "/search/label/" + c);
     });
     a["appendTo"](obj);
-    $(".show-mobile-menu, .hide-mobile-menu, .overlay")["on"]("click", function () {
+    $(".show-mobile-menu, .hide-mobile-menu, .overlay")["on"]("click", function() {
       $("body")["toggleClass"]("nav-active");
     });
     $(".mobile-menu .has-sub")["append"]("<div class=\"submenu-toggle\"/>");
     $(".mobile-menu .mega-menu")["find"](".submenu-toggle")["remove"]();
     $(".mobile-menu .mega-tabs")["append"]("<div class=\"submenu-toggle\"/>");
-    $(".mobile-menu ul li .submenu-toggle")["on"]("click", function (d) {
+    $(".mobile-menu ul li .submenu-toggle")["on"]("click", function(d) {
       if ($(this)["parent"]()["hasClass"]("has-sub")) {
         d["preventDefault"]();
         if (!$(this)["parent"]()["hasClass"]("show")) {
@@ -796,13 +787,13 @@ $(function () {
       }
     });
   });
-  $(".social-mobile")["each"](function () {
+  $(".social-mobile")["each"](function() {
     var obj = $(this),
       a = $("#about-section ul.social-footer")["clone"]();
     a["removeClass"]("social-bg-hover");
     a["appendTo"](obj);
   });
-  $("#header-wrapper .headeralotool")["each"](function () {
+  $("#header-wrapper .headeralotool")["each"](function() {
     var obj = $(this);
     if (fixedMenu == true) {
       if (obj["length"] > 0) {
@@ -810,7 +801,7 @@ $(function () {
           b = obj["offset"]()["top"],
           c = obj["height"](),
           d = (b + c);
-        $(window)["scroll"](function () {
+        $(window)["scroll"](function() {
           var e = $(document)["scrollTop"](),
             f = $("#footer-wrapper")["offset"]()["top"],
             g = (f - c);
@@ -826,15 +817,14 @@ $(function () {
               obj["removeClass"]("show");
             } else {
               obj["addClass"]("show");
-            }
-            ;
+            };
             a = $(document)["scrollTop"]();
           }
         });
       }
     }
   });
-  $("#sidebar-wrapper-left,#main-wrapper,#sidebar-wrapper")["each"](function () {
+  $("#sidebar-wrapper-left,#main-wrapper,#sidebar-wrapper")["each"](function() {
     if (fixedSidebar == true) {
       $(this)["theiaStickySidebar"]({
         additionalMarginTop: 30,
@@ -843,38 +833,38 @@ $(function () {
     }
   });
   $("a#alotool")["attr"]("href", "")["text"]("Design by - Alotool")["attr"]("style", "visibility:visible!important;opacity:1!important;position:relative!important;z-index:1!important;font-size:10px!important;color:#fff!important;");
-  setInterval(function () {
+  setInterval(function() {
     if (!$("a#alotool:visible")["length"]) {
       window["location"]["href"] = "";
     }
   }, 1000);
-  $(".back-top")["each"](function () {
+  $(".back-top")["each"](function() {
     var obj = $(this);
-    $(window)["on"]("scroll", function () {
+    $(window)["on"]("scroll", function() {
       $(this)["scrollTop"]() >= 100 ? obj["fadeIn"](250) : obj["fadeOut"](250);
       obj["offset"]()["top"] >= $("#footer-wrapper")["offset"]()["top"] - 32 ? obj["addClass"]("on-footer") : obj["removeClass"]("on-footer");
-    }), obj["click"](function () {
+    }), obj["click"](function() {
       $("html, body")["animate"]({
         scrollTop: 0
       }, 500);
     });
   });
-  $("p.comment-content")["each"](function () {
+  $("p.comment-content")["each"](function() {
     var a = $(this);
     a["replaceText"](/(https:\/\/\S+(\.png|\.jpeg|\.jpg|\.gif))/g, "<img src=\"$1\"/>");
     a["replaceText"](/(?:https:\/\/)?(?:www\.)?(?:youtube\.com)\/(?:watch\?v=)?(.+)/g, "<iframe id=\"youtube\" width=\"100%\" height=\"358\" src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
   });
-  $("#load-more-link")["each"](function () {
+  $("#load-more-link")["each"](function() {
     var obj = $(this),
       load = obj["data"]("load");
     if (load) {
       $("#load-more-link")["show"]();
     }
-    $("#load-more-link")["on"]("click", function (r) {
+    $("#load-more-link")["on"]("click", function(r) {
       $("#load-more-link")["hide"]();
       $["ajax"]({
         url: load,
-        success: function (res) {
+        success: function(res) {
           var obj1 = $(res)["find"](".blog-posts");
           obj1["find"](".index-post")["addClass"]("post-animated post-fadeInUp");
           $(".blog-posts")["append"](obj1["html"]());
@@ -887,10 +877,10 @@ $(function () {
           }
           $(".index-post .entry-image-link .entry-thumb")["lazyalotool"]();
         },
-        beforeSend: function () {
+        beforeSend: function() {
           $("#blog-pager .loading")["show"]();
         },
-        complete: function () {
+        complete: function() {
           $("#blog-pager .loading")["hide"]();
         }
       });
@@ -898,7 +888,6 @@ $(function () {
     });
   });
 });
-
 //---------- CUSTOMIZE ----------//
 // TODO
 
