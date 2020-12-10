@@ -4,6 +4,7 @@
  * License: MIT
  * Issues: https://github.com/nicinabox/shortcode.js/issues
  */
+
 /* jshint strict: false, unused: false */
 var Shortcode = function(el, tags) {
   if (!el) {
