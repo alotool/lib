@@ -1,14 +1,34 @@
 {
   "name": "@alotool/shortcode",
   "version": "1.1.0",
+  "version_current": "1.1.0",
   "description": "Replace wordpress-style shortcode strings with anything",
+  "keywords": [
+    "shortcode",
+    "blogger",
+    "blogspot",
+    "theme",
+    "template",
+    "google"
+  ],
+  "author": "alotool",
+  "license": "MIT",
+  "homepage": "https://github.com/alotool/alotool-cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alotool/alotool-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alotool/alotool-cli/issues"
+  },
   "main": "src/shortcode.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "jquery": "^2.1.1"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
