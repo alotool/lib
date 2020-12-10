@@ -4,6 +4,7 @@
   "version_current": "1.1.0",
   "description": "Replace wordpress-style shortcode strings with anything",
   "keywords": [
+    "alotool",
     "shortcode",
     "blogger",
     "blogspot",
