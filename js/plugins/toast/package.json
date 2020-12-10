@@ -43,5 +43,9 @@
     "gulp-size": "^3.0.0",
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.2"
-  }
+  },
+  "files": [
+    "types",
+    "dist"
+  ]
 }
