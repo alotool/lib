@@ -6,14 +6,15 @@
  */
 
 /* jshint strict: false, unused: false */
-
 var Shortcode = function(el, tags) {
-  if (!el) { return; }
+  if (!el) {
+    return;
+  }
 
-  this.el      = el;
-  this.tags    = tags;
+  this.el = el;
+  this.tags = tags;
   this.matches = [];
-  this.regex   = '\\[{name}(\\s[\\s\\S]*?)?\\]' +
+  this.regex = '\\[{name}(\\s[\\s\\S]*?)?\\]' +
     '(?:((?!\\s*?(?:\\[{name}|\\[\\/(?!{name})))[\\s\\S]*?)' +
     '(\\[\/{name}\\]))?';
 
@@ -27,25 +28,30 @@ var Shortcode = function(el, tags) {
 };
 
 Shortcode.prototype.matchTags = function() {
-  var html = this.el.outerHTML, instances,
-      match, re, contents, regex, tag, options;
+  var html = this.el.outerHTML,
+    instances,
+    match, re, contents, regex, tag, options;
 
   for (var key in this.tags) {
-    if (!this.tags.hasOwnProperty(key)) { return; }
-    re        = this.template(this.regex, { name: key });
+    if (!this.tags.hasOwnProperty(key)) {
+      return;
+    }
+    re = this.template(this.regex, {
+      name: key
+    });
     instances = html.match(new RegExp(re, 'g')) || [];
 
     for (var i = 0, len = instances.length; i < len; i++) {
       match = instances[i].match(new RegExp(re));
       contents = match[3] ? '' : undefined;
-      tag      = match[0];
-      regex    = this.escapeTagRegExp(tag);
-      options  = this.parseOptions(match[1]);
+      tag = match[0];
+      regex = this.escapeTagRegExp(tag);
+      options = this.parseOptions(match[1]);
 
       if (match[2]) {
         contents = match[2].trim();
-        tag      = tag.replace(contents, '').replace(/\n\s*/g, '');
-        regex    = this.escapeTagRegExp(tag).replace('\\]\\[', '\\]([\\s\\S]*?)\\[');
+        tag = tag.replace(contents, '').replace(/\n\s*/g, '');
+        regex = this.escapeTagRegExp(tag).replace('\\]\\[', '\\]([\\s\\S]*?)\\[');
       }
 
       this.matches.push({
@@ -60,7 +66,8 @@ Shortcode.prototype.matchTags = function() {
 };
 
 Shortcode.prototype.convertMatchesToNodes = function() {
-  var html = this.el.innerHTML, excludes, re, replacer;
+  var html = this.el.innerHTML,
+    excludes, re, replacer;
 
   replacer = function(match, p1, p2, p3, p4, offset, string) {
     if (p1) {
@@ -75,19 +82,22 @@ Shortcode.prototype.convertMatchesToNodes = function() {
 
   for (var i = 0, len = this.matches.length; i < len; i++) {
     excludes = '((data-sc-tag=")|(<pre.*)|(<code.*))?';
-    re       = new RegExp(excludes + this.matches[i].regex, 'g');
-    html     = html.replace(re, replacer.bind(this.matches[i]));
+    re = new RegExp(excludes + this.matches[i].regex, 'g');
+    html = html.replace(re, replacer.bind(this.matches[i]));
   }
 
   this.el.innerHTML = html;
 };
 
 Shortcode.prototype.replaceNodes = function() {
-  var self = this, html, match, result, done, node, fn, replacer,
-      nodes = this.el.querySelectorAll('.sc-node');
+  var self = this,
+    html, match, result, done, node, fn, replacer,
+    nodes = this.el.querySelectorAll('.sc-node');
 
   replacer = function(result) {
-    if (result.jquery) { result = result[0]; }
+    if (result.jquery) {
+      result = result[0];
+    }
 
     result = self.parseCallbackResult(result);
     node.parentNode.replaceChild(result, node);
@@ -95,11 +105,11 @@ Shortcode.prototype.replaceNodes = function() {
 
   for (var i = 0, len = this.matches.length; i < len; i++) {
     match = this.matches[i];
-    node  = this.el.querySelector('.sc-node-' + match.name);
+    node = this.el.querySelector('.sc-node-' + match.name);
 
     if (node && node.dataset.scTag === match.tag) {
-      fn     = this.tags[match.name].bind(match);
-      done   = replacer.bind(match);
+      fn = this.tags[match.name].bind(match);
+      done = replacer.bind(match);
       result = fn(done);
 
       if (result !== undefined) {
@@ -112,14 +122,14 @@ Shortcode.prototype.replaceNodes = function() {
 Shortcode.prototype.parseCallbackResult = function(result) {
   var container, fragment, children;
 
-  switch(typeof result) {
+  switch (typeof result) {
     case 'function':
       result = document.createTextNode(result());
       break;
 
     case 'string':
       container = document.createElement('div');
-      fragment  = document.createDocumentFragment();
+      fragment = document.createDocumentFragment();
       container.innerHTML = result;
       children = container.childNodes;
 
@@ -148,12 +158,15 @@ Shortcode.prototype.parseCallbackResult = function(result) {
 };
 
 Shortcode.prototype.parseOptions = function(stringOptions) {
-  var options = {}, set;
-  if (!stringOptions) { return; }
+  var options = {},
+    set;
+  if (!stringOptions) {
+    return;
+  }
 
   set = stringOptions
-          .replace(/(\w+=)/g, '\n$1')
-          .split('\n');
+    .replace(/(\w+=)/g, '\n$1')
+    .split('\n');
   set.shift();
 
   for (var i = 0; i < set.length; i++) {
@@ -170,20 +183,20 @@ Shortcode.prototype.escapeTagRegExp = function(regex) {
 
 Shortcode.prototype.template = function(s, d) {
   for (var p in d) {
-    s = s.replace(new RegExp('{' + p + '}','g'), d[p]);
+    s = s.replace(new RegExp('{' + p + '}', 'g'), d[p]);
   }
   return s;
 };
 
 // Polyfill .trim()
-String.prototype.trim = String.prototype.trim || function () {
+String.prototype.trim = String.prototype.trim || function() {
   return this.replace(/^\s+|\s+$/g, '');
 };
 
 // jQuery plugin wrapper
 if (window.jQuery) {
   var pluginName = 'shortcode';
-  $.fn[pluginName] = function (tags) {
+  $.fn[pluginName] = function(tags) {
     this.each(function() {
       if (!$.data(this, pluginName)) {
         $.data(this, pluginName, new Shortcode(this, tags));
