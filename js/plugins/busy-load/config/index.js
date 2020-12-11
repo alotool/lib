@@ -1,8 +1,8 @@
-const app = require('./app.js'); 
-const {rules} = require('./rules.js')
-const {output} = require('./output.js')
-const {entry} = require('./entry.js')
-const {plugins} = require('./plugins.js')
+const app = require('./app.js');
+const {rules} = require('./rules.js');
+const {output} = require('./output.js');
+const {entry} = require('./entry.js');
+const {plugins} = require('./plugins.js');
 
 // general options
 let options = {

@@ -1,5 +1,5 @@
-'use strict'
-const app = require('./app.js'); 
+'use strict';
+const app = require('./app.js');
 const rules = [{
     test: /\.js$/,
     exclude: /(node_modules|bower_components)/,
@@ -20,17 +20,17 @@ const rules = [{
         }
     }, 'postcss-loader', 'sass-loader'])
 }, {
-    test: /\.css$/i, 
+    test: /\.css$/i,
     include: app.paths.css,
     use: app.extractCSS.extract([{
         loader: 'css-loader',
         options: {
             minimize: (app.env === 'PRODUCTION') ? true : false,
             importLoaders: 1
-        }, 
+        },
     }, 'postcss-loader'])
 }];
 
 module.exports = {
     rules
-}
+};

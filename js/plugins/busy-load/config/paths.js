@@ -1,5 +1,5 @@
-'use strict'
-const path = require('path')
+'use strict';
+const path = require('path');
 const root = path.resolve(__dirname, '..');
 const config = path.resolve(root, 'config');
 const dist = path.resolve(root, 'dist');
@@ -15,4 +15,4 @@ module.exports = {
     src,
     css,
     sass
-}
+};

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 // primary module-configuration
 const libraryVarName = 'busyLoad';
 const libraryTarget = 'umd';
@@ -21,4 +21,4 @@ module.exports = {
     env: process.env.NODE_ENV,
     sourcemap,
     htmlTitle
-}
+};

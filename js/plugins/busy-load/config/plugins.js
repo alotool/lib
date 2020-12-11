@@ -1,5 +1,5 @@
-'use strict'
-const app = require('./app.js')
+'use strict';
+const app = require('./app.js');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
@@ -9,7 +9,7 @@ const cleanOptions = {
     root: app.paths.root,
     verbose: true,
     dry: false
-}
+};
 const plugins = [
     app.extractCSS
 ];
@@ -36,4 +36,4 @@ if (app.env === 'DEVELOPMENT-SERVER') {
 
 module.exports = {
     plugins
-}
+};
