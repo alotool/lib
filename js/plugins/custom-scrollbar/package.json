@@ -34,7 +34,7 @@
     "gulp-uglify": "^3.0.2"
   },
   "files": [
-    "types",
-    "dist"
+    "dist",
+    "README.md"
   ]
 }
