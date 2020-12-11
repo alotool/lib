@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/alotool/lib/issues"
   },
-  "main": "dist/jquery.mCustomScrollbar.js",
+  "main": "dist/custom-scrollbar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
