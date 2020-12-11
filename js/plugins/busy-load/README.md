@@ -1,15 +1,12 @@
 # BUSY-LOAD
 
-[![Build Status](https://travis-ci.org/piccard21/busy-load.svg?branch=master)](https://travis-ci.org/piccard21/busy-load)
-[![](https://data.jsdelivr.com/v1/package/npm/busy-load/badge)](https://www.jsdelivr.com/package/npm/busy-load)
-
 A simple, but flexible loading-mask plugin for jQuery.
 
 * **Overlay**
   * choose an animation, like fade or slide in
   * fiddle around with plenty of customization options 
 * **Spinners**
-  * css - select from a collection of pure css-spinners from [Tobias Ahlin](http://tobiasahlin.com/spinkit/)
+  * css - select from a collection of pure css-spinners.
   * image - use an image as a spinner
   * custom - pass in your custom jQuery-Element
   * fontawesome - just use the library-icons
@@ -28,13 +25,13 @@ You can find some examples [here](https://piccard21.github.io/busy-load/).
 
 Add jQuery 
 
-```
+```javascript
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 ```
 
 then busy-load
 
-```
+```javascript
 <script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
 ```
@@ -69,25 +66,25 @@ The overlay gets an absolute position, so if your caller element has a position 
 
 ### cdn
 
-```
+```javascript
 <script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
 ```
  
 ### npm
-```
+```shell script
 npm i busy-load
 ```
 
 - **HINT**: *busy-load* imports its scss to the bundle, so you will need a [sass-loader](https://github.com/webpack-contrib/sass-loader).
 
 #### import 
-```
+```javascript
 import 'busy-load'; 
 ```
 
 #### require 
-```
+```javascript
 require('busy-load'); 
 ```
 
@@ -143,10 +140,10 @@ bl.hidden                | after overlay is removed from DOM | event, $container
 
 For a fullscreen-overlay use **$.busyLoadFull()**:
 
-```        
+```javascript
 $.busyLoadFull("show");
 $.busyLoadFull("hide");
-```    
+```
 
 - the method accepts the same options like *busyLoad()*
 
@@ -165,21 +162,12 @@ $.busyLoadSetup({
 
 To see the actual default-settings use **$fn.busyLoad.defaults**:
  
-```        
+```javascript
 $.fn.busyLoad.defaults
-```     
+```
 
 Setting a new default value:
 
-```        
+```javascript
 $.fn.busyLoad.defaults.color = "blue"
-```     
-
-
-## License
-
-busy-load is licensed under the MIT License - see the LICENSE file for details.
-
-
-## Author
-[Andreas Stephan](https://cafe-serendipity.com)
+```
