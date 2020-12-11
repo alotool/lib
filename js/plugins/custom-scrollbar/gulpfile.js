@@ -40,9 +40,30 @@ function scripts() {
     }));
 }
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts));
+function scriptsCopy() {
+  return gulp.src('./src/js/jquery.mCustomScrollbar.concat.min.js')
+    .pipe(concat('custom-scrollbar.concat.min.js'))
+    .pipe(gulp.dest('./dist'))
+    .pipe(notify('Scripts copy done successfully!'))
+    .pipe(size({
+      showFiles: true
+    }));
+}
+
+function resourceCopy() {
+  return gulp.src('./src/css/mCSB_buttons.png')
+    .pipe(gulp.dest('./dist'))
+    .pipe(notify('Resource copy done successfully!'))
+    .pipe(size({
+      showFiles: true
+    }));
+}
+
+const build = gulp.series(clean, gulp.parallel(styles, scripts, scriptsCopy, resourceCopy));
 
 exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
+exports.scriptsCopy = scriptsCopy;
+exports.resourceCopy = resourceCopy;
 exports.default = build;
