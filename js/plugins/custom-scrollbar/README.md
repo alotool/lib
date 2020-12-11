@@ -1,5 +1,4 @@
-malihu custom scrollbar plugin
-================================
+# custom-scrollbar
 
 Highly customizable custom scrollbar jQuery plugin ([Demo](http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/complete_examples.html)). Features include: 
 
@@ -38,14 +37,14 @@ Manual: `$(selector).mCustomScrollbar();`
 	npm install jquery-mousewheel
 	npm install malihu-custom-scrollbar-plugin
 
-	module.exports = {
-		module: {
-			loaders: [
-				{ test: /jquery-mousewheel/, loader: "imports?define=>false&this=>window" },
-				{ test: /malihu-custom-scrollbar-plugin/, loader: "imports?define=>false&this=>window" }
-			]
-		}
-	};
+    module.exports = {
+      module: {
+        loaders: [
+          { test: /jquery-mousewheel/, loader: "imports?define=>false&this=>window" },
+          { test: /malihu-custom-scrollbar-plugin/, loader: "imports?define=>false&this=>window" }
+        ]
+      }
+    };
 
 	var $ = require('jquery');
 	require("jquery-mousewheel")($);
