@@ -31,7 +31,6 @@
     "gulp-csso": "^4.0.1",
     "gulp-notify": "^3.2.0",
     "gulp-size": "^3.0.0",
-    "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.2"
   },
   "files": [
