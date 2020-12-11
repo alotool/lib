@@ -2,9 +2,9 @@
 const app = require('./app.js');
 const appPath = app.paths.path.resolve(app.paths.src, 'index.js');
 const entry = (app.env === 'PRODUCTION') ? {
-    "app.min": appPath
+    "busy-load.min": appPath
 } : {
-    "app": appPath
+    "busy-load": appPath
 };
 module.exports = {
     entry
