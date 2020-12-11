@@ -68,18 +68,6 @@ Browser compatibility
 * Android 
 * Windows Phone
 
-License 
--------------------------
-
-MIT License (MIT)
-
-http://opensource.org/licenses/MIT
-
-Donate 
--------------------------
-
-https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UYJ5G65M6ZA28
-
 
 ### Publish package to NPM package registry
 ```shell script
