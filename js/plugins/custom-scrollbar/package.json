@@ -1,37 +1,42 @@
 {
-  "name": "malihu-custom-scrollbar-plugin",
+  "name": "@alotool/custom-scrollbar",
   "version": "3.1.5",
-  "author": "malihu (http://manos.malihu.gr)",
+  "version_current": "3.1.5",
   "description": "Highly customizable custom scrollbar jQuery plugin, featuring vertical/horizontal scrollbars, scrolling momentum, mouse-wheel, keyboard and touch support user defined callbacks etc.",
-  "license": "MIT",
-  "homepage": "http://manos.malihu.gr/jquery-custom-content-scroller",
-  "main": "./jquery.mCustomScrollbar.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/malihu/malihu-custom-scrollbar-plugin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/malihu/malihu-custom-scrollbar-plugin/issues"
-  },
+  "readmeFilename": "README.md",
   "keywords": [
+    "alotool",
     "jquery-plugin",
     "custom-scrollbar",
     "scrollbar"
   ],
-  "files": [
-    "jquery.mCustomScrollbar.js",
-    "jquery.mCustomScrollbar.concat.min.js",
-    "jquery.mCustomScrollbar.css",
-    "mCSB_buttons.png",
-    "readme.md"
-  ],
-  "jam": {
-    "dependencies": {
-      "jquery": ">=1.6",
-	    "jquery-mousewheel": ">=3.0.6"
-    }
+  "author": "alotool",
+  "license": "MIT",
+  "homepage": "https://github.com/alotool/lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alotool/lib.git"
   },
-  "dependencies": {
-    "jquery-mousewheel": ">=3.0.6"
-  }
+  "bugs": {
+    "url": "https://github.com/alotool/lib/issues"
+  },
+  "main": "dist/jquery.mCustomScrollbar.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-size": "^3.0.0",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "files": [
+    "types",
+    "dist"
+  ]
 }
