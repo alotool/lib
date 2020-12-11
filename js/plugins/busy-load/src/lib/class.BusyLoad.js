@@ -1,40 +1,40 @@
-import {Container} from './components/class.Container.js'; 
-import {ContainerItem} from './components/class.ContainerItem.js'; 
-import {Text} from './components/class.Text.js'; 
-import {Spinner} from './components/class.Spinner.js'; 
+import {Container} from './components/class.Container.js';
+import {ContainerItem} from './components/class.ContainerItem.js';
+import {Text} from './components/class.Text.js';
+import {Spinner} from './components/class.Spinner.js';
 const get = require("lodash/get");
 
 export class BusyLoad {
-    constructor(caller, defaults, options) { 
+    constructor(caller, defaults, options) {
 
-        this._settings = defaults;  
+        this._settings = defaults;
         this._caller= caller;
 
-        this.extendSettings(options); 
+        this.extendSettings(options);
         // this.debugSettings();
     }
-         
+
     get settings() {
         return this._settings;
     }
-  
+
     set settings(newOptions) {
-        this._settings = newOptions; 
+        this._settings = newOptions;
     }
-           
+
     get caller() {
         return this._caller;
     }
-  
+
     set caller(newOptions) {
-        this._caller = newOptions; 
+        this._caller = newOptions;
     }
 
     debugSettings() {
         console.log(this._settings.fullScreen);
     }
 
-    extendSettings(options) { 
+    extendSettings(options) {
         $.extend(this._settings, options);
     }
 
@@ -48,7 +48,7 @@ export class BusyLoad {
         if (get(this.settings, "animation",  false)) {
 
             switch (get(this.settings, "animation").toLowerCase()) {
-                case "fade": 
+                case "fade":
                     $tag = $tag.fadeIn(get(this.settings, "animationDuration", "fast"), callback);
                     break;
                 case "slide":
@@ -62,19 +62,19 @@ export class BusyLoad {
         }
 
         return $tag;
-    } 
+    }
 
-    animateHide($tag) { 
+    animateHide($tag) {
         let callback = () => {
             $tag.trigger("bl.hidden", [$tag, $(this.caller)]);
             $tag.remove();
-        }
+        };
 
         $tag.trigger("bl.hide", [$tag, $(this.caller)]);
 
         if (get(this.settings, "animation",  false)) {
             switch (get(this.settings, "animation").toLowerCase()) {
-                case "fade": 
+                case "fade":
                     $tag = $tag.fadeOut(get(this.settings, "animationDuration", "fast"), callback);
                     break;
                 case "slide":
@@ -89,7 +89,7 @@ export class BusyLoad {
     }
 
 
-    getOverlay() { 
+    getOverlay() {
         // already existent?
         if(this._caller.data("busy-load-container")) {
             return $("#"+this._caller.data("busy-load-container"));
@@ -100,33 +100,33 @@ export class BusyLoad {
             this._container = new Container(this._settings);
             this._containerItem = new ContainerItem(this._settings);
 
-             
-            // append text 
-            if (get(this.settings, "text",  false)) { 
+
+            // append text
+            if (get(this.settings, "text",  false)) {
                 this._loadingText= new Text(this._settings);
-                this._containerItem.tag.append(this._loadingText.tag); 
-            } 
-            // append spinner 
+                this._containerItem.tag.append(this._loadingText.tag);
+            }
+            // append spinner
             if (get(this.settings, "spinner",  "pump") !== false) {
-                this._spinner= new Spinner(this._settings); 
+                this._spinner= new Spinner(this._settings);
                 this._containerItem.tag.append(this._spinner.tag);
-            } 
+            }
 
             // container
             this._container.tag.append(this._containerItem.tag).hide();
         }
 
         return this._container.tag;
-    } 
+    }
 
     createRandomString() {
         return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     }
 
-    toggle($tag, action) { 
+    toggle($tag, action) {
         // show
         if(action == 'show') {
-            const randomString = this.createRandomString(); 
+            const randomString = this.createRandomString();
 
             // position static?
             if(this.caller.css('position') === 'static') {
@@ -136,25 +136,24 @@ export class BusyLoad {
             this._caller.addClass('busy-load-active');
             $tag.attr('id', randomString);
             $tag = this.animateShow($tag);
- 
+
             this._caller.data("busy-load-container", randomString);
-        } 
+        }
         // hide
-        else {  
+        else {
             this.animateHide($tag);
             this._caller.removeData("busy-load-container");
             this._caller.removeClass('busy-load-active');
         }
-    } 
-
-    show() {   
-        this.toggle( this.getOverlay(), "show") 
     }
 
-    hide() { 
+    show() {
+        this.toggle( this.getOverlay(), "show")
+    }
+
+    hide() {
         const containerId = this._caller.data('busy-load-container');
-        this.toggle( $("#"+containerId), "hide" ); 
+        this.toggle( $("#"+containerId), "hide" );
     }
 
 }
-         
