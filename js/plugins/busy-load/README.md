@@ -41,19 +41,19 @@ then busy-load
 
 and call the plugin from your element
 
-```
+```javascript
 $("#some-element").busyLoad("show");
 
 // with options
 $("#another-element").busyLoad("show", {
-	background: "#000",
-	spinner: "cube",
-	animation: "slide"
+  background: "#000",
+  spinner: "cube",
+  animation: "slide"
 });
 ```
 
-```
-$("#some-element").busyLoad("hide");  
+```javascript
+$("#some-element").busyLoad("hide");
 
 // with options
 $("#another-element").busyLoad("hide", {
