@@ -15,14 +15,10 @@ function styles() {
     .pipe(concat('custom-scrollbar.css'))
     .pipe(gulp.dest('./dist'))
     .pipe(concat('custom-scrollbar.min.css'))
-    .pipe(csso({
-      discardComments: false
-    }))
+    .pipe(csso({discardComments: false}))
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Styles build done successfully!'))
-    .pipe(size({
-      showFiles: true
-    }));
+    .pipe(size({showFiles: true}));
 }
 
 function scripts() {
@@ -30,14 +26,10 @@ function scripts() {
     .pipe(concat('custom-scrollbar.js'))
     .pipe(gulp.dest('./dist'))
     .pipe(concat('custom-scrollbar.min.js'))
-    .pipe(uglify({
-      mangle: true
-    }))
+    .pipe(uglify({mangle: true}))
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Scripts build done successfully!'))
-    .pipe(size({
-      showFiles: true
-    }));
+    .pipe(size({showFiles: true}));
 }
 
 function scriptsCopy() {
@@ -45,18 +37,14 @@ function scriptsCopy() {
     .pipe(concat('custom-scrollbar.concat.min.js'))
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Scripts copy done successfully!'))
-    .pipe(size({
-      showFiles: true
-    }));
+    .pipe(size({showFiles: true}));
 }
 
 function resourceCopy() {
   return gulp.src('./src/css/mCSB_buttons.png')
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Resource copy done successfully!'))
-    .pipe(size({
-      showFiles: true
-    }));
+    .pipe(size({showFiles: true}));
 }
 
 const build = gulp.series(clean, gulp.parallel(styles, scripts, scriptsCopy, resourceCopy));
