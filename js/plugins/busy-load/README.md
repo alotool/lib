@@ -154,12 +154,12 @@ $.busyLoadFull("hide");
 
 If you don't wanna pass in your options all the time, because it would repeat itself, you can use **$.busyLoadSetup**:
  
-```        
+```javascript
 $.busyLoadSetup({
-	animation: "slide",
-	background: "rgba(255, 152, 0, 0.86)"
-}); 
-```         
+  animation: "slide",
+  background: "rgba(255, 152, 0, 0.86)"
+});
+```
 
 ## Defaults
 
