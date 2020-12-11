@@ -8,11 +8,11 @@ const css = path.resolve(src, 'css');
 const sass = path.resolve(src, 'sass');
 
 module.exports = {
-    path,
-    root,
-    config,
-    dist,
-    src,
-    css,
-    sass
+  path,
+  root,
+  config,
+  dist,
+  src,
+  css,
+  sass
 };

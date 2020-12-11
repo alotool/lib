@@ -6,26 +6,26 @@ const {plugins} = require('./plugins.js');
 
 // general options
 let options = {
-	externals: {
-	  jquery: 'jQuery'
-	},
-    entry,
-    plugins,
-    output,
-    module: {rules}
+  externals: {
+    jquery: 'jQuery'
+  },
+  entry,
+  plugins,
+  output,
+  module: {rules}
 };
 
 // add sourcemap
 if (app.sourcemap) {
-   options.devtool= 'source-map';
+  options.devtool = 'source-map';
 }
 
 // dev-server
 if (app.env === 'DEVELOPMENT-SERVER') {
-    options.devServer= {
-        contentBase: app.paths.dist,
-        hot: true
-    }
+  options.devServer = {
+    contentBase: app.paths.dist,
+    hot: true
+  }
 }
 
-module.exports=options;
+module.exports = options;

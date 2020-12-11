@@ -9,16 +9,16 @@ const htmlTitle = 'busy-load';
 const paths = require('./paths.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin({
-    filename: '[name].css',
-    allChunks: true
+  filename: '[name].css',
+  allChunks: true
 });
 
 module.exports = {
-    extractCSS: extractCSS,
-    libraryVarName: libraryVarName,
-    libraryTarget: libraryTarget,
-    paths,
-    env: process.env.NODE_ENV,
-    sourcemap,
-    htmlTitle
+  extractCSS: extractCSS,
+  libraryVarName: libraryVarName,
+  libraryTarget: libraryTarget,
+  paths,
+  env: process.env.NODE_ENV,
+  sourcemap,
+  htmlTitle
 };
