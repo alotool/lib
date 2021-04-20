@@ -846,7 +846,7 @@ $(function () {
       });
     }
   });
-  $("a#alotool")["attr"]("href", "")["text"]("Design by - Alotool")["attr"]("style", "visibility:visible!important;opacity:1!important;position:relative!important;z-index:1!important;font-size:10px!important;color:#fff!important;");
+  $("a#alotool")["attr"]("href", "")["text"]("Alotool")["attr"]("style", "visibility:visible!important;opacity:1!important;position:relative!important;z-index:1!important;font-size:10px!important;color:#fff!important;");
   setInterval(function () {
     if (!$("a#alotool:visible")["length"]) {
       window["location"]["href"] = "";
