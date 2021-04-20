@@ -1,13 +1,13 @@
-const gulp = require('gulp');
-const del = require('del');
+const gulp   = require('gulp');
+const del    = require('del');
 const concat = require('gulp-concat');
 const stylus = require('gulp-stylus');
-const size = require('gulp-size');
+const size   = require('gulp-size');
 const notify = require('gulp-notify');
 const uglify = require('gulp-uglify');
-const csso = require('gulp-csso');
+const csso   = require('gulp-csso');
 
-const catchError = function(err) {
+const catchError = function (err) {
   console.log(err.toString());
   this.emit('end')
 };
@@ -50,7 +50,7 @@ function scripts() {
 
 const build = gulp.series(clean, gulp.parallel(styles, scripts));
 
-exports.clean = clean;
-exports.styles = styles;
+exports.clean   = clean;
+exports.styles  = styles;
 exports.scripts = scripts;
 exports.default = build;
