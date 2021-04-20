@@ -5,20 +5,20 @@
 /*! Replace-text|v1.1.0|http://benalman.com/projects/jquery-replacetext-plugin */(function($){$.fn.replaceText=function(b,a,c){return this.each(function(){var f=this.firstChild,g,e,d=[];if(f){do{if(f.nodeType===3){g=f.nodeValue;e=g.replace(b,a);if(e!==g){if(!c&&/</.test(e)){$(f).before(e);d.push(f)}else{f.nodeValue=e}}}}while(f=f.nextSibling)}d.length&&$(d).remove()})}})(jQuery);
 
 var configDefault = {
-  avatar: "//1.bp.blogspot.com/-8Jqpc6W9n-Q/Xt--Hk_iaaI/AAAAAAAAACE/WlTM504HbzQaRd40KF_ZvATU4JYXRiaCACK4BGAsYHg/w55-h55-p-k-no-nu/avatar-001.jpg",
+  avatar    : "//1.bp.blogspot.com/-8Jqpc6W9n-Q/Xt--Hk_iaaI/AAAAAAAAACE/WlTM504HbzQaRd40KF_ZvATU4JYXRiaCACK4BGAsYHg/w55-h55-p-k-no-nu/avatar-001.jpg",
   entryImage: "//1.bp.blogspot.com/-zia8weibM-w/Xt--HwlUn0I/AAAAAAAAACE/9yVPHBaeLrg_dKA_vXe8sq0Y7CeKX_htQCK4BGAsYHg/s72-c/entry-image-001.png",
 };
 
 !function ($) {
   $["fn"]["lazyalotool"] = function () {
     return this["each"](function () {
-      var obj = $(this),
-        imagePlaceholder = obj["attr"]("data-image"),
-        objW = Math["round"](obj["width"]()),
-        objH = Math["round"](obj["height"]()),
-        //imageSize = "/w" + objW + "-h" + objH + "-p-k-no-nu",
-        imageSize = "/w" + (objW > objH ? objW : objH),
-        imageLoad = "";
+      var obj              = $(this),
+          imagePlaceholder = obj["attr"]("data-image"),
+          objW             = Math["round"](obj["width"]()),
+          objH             = Math["round"](obj["height"]()),
+          //imageSize = "/w" + objW + "-h" + objH + "-p-k-no-nu",
+          imageSize        = "/w" + (objW > objH ? objW : objH),
+          imageLoad        = "";
       if (imagePlaceholder["match"]("s72-c")) {
         imageLoad = imagePlaceholder["replace"]("/s72-c", imageSize);
       } else {
@@ -31,9 +31,9 @@ var configDefault = {
       $(window)["on"]("load resize scroll", func);
 
       function func() {
-        var wHeight = $(window)["height"](),
-          wScrollTop = $(window)["scrollTop"](),
-          offsetTop = obj["offset"]()["top"];
+        var wHeight    = $(window)["height"](),
+            wScrollTop = $(window)["scrollTop"](),
+            offsetTop  = obj["offset"]()["top"];
         if (wScrollTop + wHeight > offsetTop) {
           var image = new Image();
           image["onload"] = function () {
@@ -53,22 +53,22 @@ $(".search-toggle")["on"]("click", function () {
   $("body")["toggleClass"]("search-active");
 });
 $(".blog-posts-title a.more,.related-title a.more")["each"](function () {
-  var obj = $(this),
-    _showMoreText = showMoreText;
+  var obj           = $(this),
+      _showMoreText = showMoreText;
   if (_showMoreText != "") {
     obj["text"](_showMoreText);
   }
 });
 $(".follow-by-email-text")["each"](function () {
-  var obj = $(this),
-    _followByEmailText = followByEmailText;
+  var obj                = $(this),
+      _followByEmailText = followByEmailText;
   if (_followByEmailText != "") {
     obj["text"](_followByEmailText);
   }
 });
 $(".post-body strike")["each"](function () {
-  var obj = $(this),
-    textValue = obj["text"]()["trim"]();
+  var obj       = $(this),
+      textValue = obj["text"]()["trim"]();
   if (textValue == "$ads={1}") {
     obj["replaceWith"]("<div id=\"new-before-ad\"/>");
   }
@@ -101,12 +101,12 @@ $("#main-after-ad .widget")["each"](function () {
   }
 });
 $("#social-counter ul.social-icons li a")["each"](function () {
-  var obj = $(this),
-    elCount = obj["find"](".count"),
-    textRaw = obj["data"]("content")["trim"](),
-    textArray = textRaw["split"]("$"),
-    href = textArray[0],
-    text = textArray[1];
+  var obj       = $(this),
+      elCount   = obj["find"](".count"),
+      textRaw   = obj["data"]("content")["trim"](),
+      textArray = textRaw["split"]("$"),
+      href      = textArray[0],
+      text      = textArray[1];
   obj["attr"]("href", href);
   elCount["text"](text);
 });
@@ -118,12 +118,12 @@ $(".avatar-image-container img")["attr"]("src", function (a, b) {
   return b;
 });
 $(".post-body a")["each"](function () {
-  var obj = $(this),
-    txtRaw = obj["text"]()["trim"](),
-    txtArray = txtRaw["split"]("/"),
-    a = txtArray[0],
-    b = txtArray[1],
-    c = txtArray["pop"]();
+  var obj      = $(this),
+      txtRaw   = obj["text"]()["trim"](),
+      txtArray = txtRaw["split"]("/"),
+      a        = txtArray[0],
+      b        = txtArray[1],
+      c        = txtArray["pop"]();
   if (txtRaw["match"]("button")) {
     obj["addClass"]("button")["text"](a);
     if (b != "button") {
@@ -137,9 +137,9 @@ $(".post-body a")["each"](function () {
   }
 });
 $(".post-body strike")["each"](function () {
-  var obj = $(this),
-    txtRaw = obj["text"]()["trim"](),
-    txtHtml = obj["html"]();
+  var obj     = $(this),
+      txtRaw  = obj["text"]()["trim"](),
+      txtHtml = obj["html"]();
   if (txtRaw["match"]("contact-form")) {
     obj["replaceWith"]("<div class=\"contact-form\"/>");
     $(".contact-form")["append"]($("#ContactForm1"));
@@ -171,35 +171,35 @@ $(".post-body strike")["each"](function () {
   var b = $(".post-body .short-b")["find"]("b");
   b["each"](function () {
     var obj1 = $(this),
-      txt = obj1["text"]()["trim"]();
+        txt  = obj1["text"]()["trim"]();
     if (txt["match"]("alert-success") || txt["match"]("alert-info") || txt["match"]("alert-warning") || txt["match"]("alert-error") || txt["match"]("code-box")) {
       obj1["replaceWith"]("");
     }
   });
 });
 $(".share-links .window-alotool,.entry-share .window-alotool")["on"]("click", function () {
-  var obj = $(this),
-    dataURL = obj["data"]("url"),
-    dataWidth = obj["data"]("width"),
-    dataHeight = obj["data"]("height"),
-    screenWidth = window["screen"]["width"],
-    screenHeight = window["screen"]["height"],
-    l = Math["round"](screenWidth / 2 - dataWidth / 2),
-    t = Math["round"](screenHeight / 2 - dataHeight / 2),
-    r = window["open"](dataURL, "_blank", "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=" + dataWidth + ",height=" + dataHeight + ",left=" + l + ",top=" + t);
+  var obj          = $(this),
+      dataURL      = obj["data"]("url"),
+      dataWidth    = obj["data"]("width"),
+      dataHeight   = obj["data"]("height"),
+      screenWidth  = window["screen"]["width"],
+      screenHeight = window["screen"]["height"],
+      l            = Math["round"](screenWidth / 2 - dataWidth / 2),
+      t            = Math["round"](screenHeight / 2 - dataHeight / 2),
+      r            = window["open"](dataURL, "_blank", "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=" + dataWidth + ",height=" + dataHeight + ",left=" + l + ",top=" + t);
   r["focus"]();
 });
 $(".share-links")["each"](function () {
   var obj = $(this),
-    elA = obj["find"](".show-hid a");
+      elA = obj["find"](".show-hid a");
   elA["on"]("click", function () {
     obj["toggleClass"]("show-hidden");
   });
 });
 $(".about-author .author-description span a")["each"](function () {
-  var obj = $(this),
-    txtRaw = obj["text"]()["trim"](),
-    href = obj["attr"]("href");
+  var obj    = $(this),
+      txtRaw = obj["text"]()["trim"](),
+      href   = obj["attr"]("href");
   obj["replaceWith"]("<li class=\"" + txtRaw + "\"><a href=\"" + href + "\" title=\"" + txtRaw + "\" target=\"_blank\"/></li>");
   $(".author-description")["append"]($(".author-description span li"));
   $(".author-description")["addClass"]("show-icons");
@@ -223,12 +223,12 @@ function beforeLoader() {
 }
 
 $("#alotool-main-menu li")["each"](function (label) {
-  var _obj = $(this),
-    obj = _obj,
-    elA = _obj["find"]("a"),
-    href = elA["attr"]("href")["trim"](),
-    textToLowerCase = href["toLowerCase"](),
-    textArray = href["split"]("$");
+  var _obj            = $(this),
+      obj             = _obj,
+      elA             = _obj["find"]("a"),
+      href            = elA["attr"]("href")["trim"](),
+      textToLowerCase = href["toLowerCase"](),
+      textArray       = href["split"]("$");
   textArray[1] != undefined ? label = regxify(textArray[1]) : label = "";
   if (textToLowerCase["match"]("getmega")) {
     obj["addClass"]("has-sub mega-menu");
@@ -236,19 +236,19 @@ $("#alotool-main-menu li")["each"](function (label) {
   ajaxMega(obj, "msimple", 5, label, textToLowerCase);
 });
 $("#featured .HTML .widget-content")["each"](function (label, color) {
-  var obj = $(this),
-    textRaw = obj["text"]()["trim"](),
-    textToLowerCase = textRaw["toLowerCase"](),
-    textArray = textRaw["split"]("$");
+  var obj             = $(this),
+      textRaw         = obj["text"]()["trim"](),
+      textToLowerCase = textRaw["toLowerCase"](),
+      textArray       = textRaw["split"]("$");
   textArray[1] != undefined ? label = regxify(textArray[1]) : label = "";
   textArray[2] != undefined ? color = regxify(textArray[2]) : color = "";
   ajaxFeatured(obj, "featured", 4, label, textToLowerCase, color);
 });
 $(".block-posts .HTML .widget-content")["each"](function (results, label, type, color) {
-  var obj = $(this),
-    textRaw = obj["text"]()["trim"](),
-    textToLowerCase = textRaw["toLowerCase"](),
-    textArray = textRaw["split"]("$");
+  var obj             = $(this),
+      textRaw         = obj["text"]()["trim"](),
+      textToLowerCase = textRaw["toLowerCase"](),
+      textArray       = textRaw["split"]("$");
   textArray[1] != undefined ? results = regxify(textArray[1]) : results = "";
   textArray[2] != undefined ? label = regxify(textArray[2]) : label = "";
   textArray[3] != undefined ? type = regxify(textArray[3]) : type = "";
@@ -256,19 +256,19 @@ $(".block-posts .HTML .widget-content")["each"](function (results, label, type, 
   ajaxBlock(obj, type, results, label, textToLowerCase, color);
 });
 $(".widget-ready .HTML .widget-content")["each"](function (results, label, type) {
-  var obj = $(this),
-    textRaw = obj["text"]()["trim"](),
-    textToLowerCase = textRaw["toLowerCase"](),
-    textArray = textRaw["split"]("$");
+  var obj             = $(this),
+      textRaw         = obj["text"]()["trim"](),
+      textToLowerCase = textRaw["toLowerCase"](),
+      textArray       = textRaw["split"]("$");
   textArray[1] != undefined ? results = regxify(textArray[1]) : results = "";
   textArray[2] != undefined ? label = regxify(textArray[2]) : label = "";
   textArray[3] != undefined ? type = regxify(textArray[3]) : type = "";
   ajaxWidget(obj, type, results, label, textToLowerCase);
 });
 $(".related-content")["each"](function () {
-  var obj = $(this),
-    label = obj["find"](".related-tag")["attr"]("data-label"),
-    results = relatedPostsNum;
+  var obj     = $(this),
+      label   = obj["find"](".related-tag")["attr"]("data-label"),
+      results = relatedPostsNum;
   ajaxRelated(obj, "related", results, label, "getrelated");
 });
 
@@ -310,12 +310,12 @@ function getPostTitle(entries, index) {
 
 function getFirstImage(t, firstImage) {
   var a = $("<div>")["html"](t),
-    b = a["find"]("img:first")["attr"]("src"),
-    c = b["lastIndexOf"]("/") || 0,
-    d = b["lastIndexOf"]("/", c - 1) || 0,
-    e = b["substring"](0, d),
-    f = b["substring"](d, c),
-    g = b["substring"](c);
+      b = a["find"]("img:first")["attr"]("src"),
+      c = b["lastIndexOf"]("/") || 0,
+      d = b["lastIndexOf"]("/", c - 1) || 0,
+      e = b["substring"](0, d),
+      f = b["substring"](d, c),
+      g = b["substring"](c);
   if (f["match"](/\/s[0-9]+/g) || f["match"](/\/w[0-9]+/g) || f == "/d") {
     f = "/w72-h72-p-k-no-nu";
   }
@@ -324,7 +324,7 @@ function getFirstImage(t, firstImage) {
 }
 
 function getPostImage(entries, index, postLink) {
-  var t = entries[index]["content"]["$t"];
+  var t            = entries[index]["content"]["$t"];
   var thumbnailURL = "";
   if (entries[index]["media$thumbnail"]) {
     thumbnailURL = entries[index]["media$thumbnail"]["url"];
@@ -365,11 +365,11 @@ function getPostAuthor(entries, index) {
 
 function getPostDate(entries, index) {
   var published = entries[index]["published"]["$t"],
-    a = published["substring"](0, 4),
-    b = published["substring"](5, 7),
-    c = published["substring"](8, 10),
-    d = monthFormat[parseInt(b, 10) - 1] + " " + c + ", " + a;
-  var postDate = "";
+      a         = published["substring"](0, 4),
+      b         = published["substring"](5, 7),
+      c         = published["substring"](8, 10),
+      d         = monthFormat[parseInt(b, 10) - 1] + " " + c + ", " + a;
+  var postDate  = "";
   if (messages["postDate"] == "true") {
     postDate = "<span class=\"entry-time\"><time class=\"published\" datetime=\"" + published + "\">" + d + "</time></span>";
   }
@@ -386,7 +386,8 @@ function getPostMeta(postAuthor, postDate) {
     _date = "<div class=\"entry-meta\">" + postDate + "</div>";
   }
   var postMeta = [authorDate,
-    _date];
+    _date
+  ];
   return postMeta;
 }
 
@@ -404,9 +405,9 @@ function getPostLabelFix(label) {
 }
 
 function getPostComments(entries, index, postLink) {
-  var a = entries[index]["author"][0]["name"]["$t"],
-    b = entries[index]["author"][0]["gd$image"]["src"]["replace"]("/s113", "/w55-h55-p-k-no-nu"),
-    c = entries[index]["title"]["$t"];
+  var a         = entries[index]["author"][0]["name"]["$t"],
+      b         = entries[index]["author"][0]["gd$image"]["src"]["replace"]("/s113", "/w55-h55-p-k-no-nu"),
+      c         = entries[index]["title"]["$t"];
   var avatarURL = "";
   if (b["match"]("//img1.blogblog.com/img/blank.gif") || b["match"]("//img1.blogblog.com/img/b16-rounded.gif")) {
     avatarURL = configDefault.avatar;
@@ -454,10 +455,10 @@ function getAjax(obj, type, results, label, color) {
       ;
       var feedUrl = getFeedUrl(type, results, label);
       $["ajax"]({
-        url: feedUrl,
-        type: "GET",
-        dataType: "json",
-        cache: true,
+        url       : feedUrl,
+        type      : "GET",
+        dataType  : "json",
+        cache     : true,
         beforeSend: function (response) {
           var customStyle = getCustomStyle(type, label, color);
           switch (type) {
@@ -489,7 +490,7 @@ function getAjax(obj, type, results, label, color) {
               break
           }
         },
-        success: function (response) {
+        success   : function (response) {
           var elStart = "";
           switch (type) {
             case "msimple":
@@ -523,14 +524,14 @@ function getAjax(obj, type, results, label, color) {
           var entries = response["feed"]["entry"];
           if (entries != undefined) {
             for (var i = 0, _entries = entries; i < _entries["length"]; i++) {
-              var postLink = getPostLink(_entries, i),
-                postTitle = getPostTitle(_entries, i, postLink),
-                postImage = getPostImage(_entries, i, postLink),
-                postAuthor = getPostAuthor(_entries, i),
-                postDate = getPostDate(_entries, i),
-                postMeta = getPostMeta(postAuthor, postDate),
-                postLabel = getPostLabel(_entries, i);
-              var elEnd = "";
+              var postLink   = getPostLink(_entries, i),
+                  postTitle  = getPostTitle(_entries, i, postLink),
+                  postImage  = getPostImage(_entries, i, postLink),
+                  postAuthor = getPostAuthor(_entries, i),
+                  postDate   = getPostDate(_entries, i),
+                  postMeta   = getPostMeta(postAuthor, postDate),
+                  postLabel  = getPostLabel(_entries, i);
+              var elEnd      = "";
               switch (type) {
                 case "msimple":
                   elEnd += "<article class=\"mega-item\"><div class=\"mega-content\"><a class=\"entry-image-link\" href=\"" + postLink + "\"><span class=\"entry-thumb\" data-image=\"" + postImage + "\"/></a><h2 class=\"entry-title\"><a href=\"" + postLink + "\">" + postTitle + "</a></h2>" + postMeta[1] + "</div></article>";
@@ -646,7 +647,7 @@ function getAjax(obj, type, results, label, color) {
           ;
           obj["find"]("span.entry-thumb")["lazyalotool"]();
         },
-        error: function () {
+        error     : function () {
           switch (type) {
             case "msimple":
               obj["append"]("<ul>" + msgServerError() + "</ul>");
@@ -686,8 +687,8 @@ function ajaxFeatured(obj, type, results, label, textToLowerCase, color) {
 function ajaxBlock(obj, type, results, label, textToLowerCase, color) {
   if (textToLowerCase["match"]("getblock")) {
     if (type == "block" || type == "col-left" || type == "col-right" || type == "grid" || type == "videos") {
-      var temp = showMoreText,
-        _showMoreText = "";
+      var temp          = showMoreText,
+          _showMoreText = "";
       if (temp != "") {
         _showMoreText = temp;
       } else {
@@ -718,12 +719,11 @@ function ajaxRelated(obj, type, results, label, color) {
   }
 }
 
-// Comments system
+//---------- COMMENTS SYSTEM ----------//
 $(".blog-post-comments")["each"](function () {
-  var obj = $(this),
-    _commentsSystem = commentsSystem,
-    elComments = "<div class=\"fb-comments\" data-width=\"100%\" data-href=\"" + bloggerCurrentURL + "\" order_by=\"time\" data-numposts=\"5\"></div>",
-    classCommentsSystem = "comments-system-" + _commentsSystem;
+  var obj                 = $(this),
+      _commentsSystem     = commentsSystem,
+      classCommentsSystem = "comments-system-" + _commentsSystem;
   switch (_commentsSystem) {
     case "blogger":
       obj["addClass"](classCommentsSystem)["show"]();
@@ -733,6 +733,7 @@ $(".blog-post-comments")["each"](function () {
       obj["addClass"](classCommentsSystem)["show"]();
       break;
     case "facebook":
+      var elComments = "<div class=\"fb-comments\" data-width=\"100%\" data-href=\"" + bloggerCurrentURL + "\" order_by=\"time\" data-numposts=\"5\"></div>";
       obj["addClass"](classCommentsSystem)["find"]("#comments")["html"](elComments);
       obj["show"]();
       break;
@@ -746,7 +747,7 @@ $(".blog-post-comments")["each"](function () {
   }
   ;
   var a = obj["find"](".comments .toplevel-thread > ol > .comment .comment-actions .comment-reply"),
-    b = obj["find"](".comments .toplevel-thread > #top-continue");
+      b = obj["find"](".comments .toplevel-thread > #top-continue");
   a["on"]("click", function () {
     b["show"]();
   });
@@ -759,26 +760,26 @@ $(function () {
   $(".index-post .entry-image-link .entry-thumb, .PopularPosts .entry-image-link .entry-thumb, .FeaturedPost .entry-image-link .entry-thumb,.about-author .author-avatar")["lazyalotool"]();
   $(".mobile-logo")["each"](function () {
     var obj = $(this),
-      a = $("#main-logo .header-widget a")["clone"]();
+        a   = $("#main-logo .header-widget a")["clone"]();
     a["find"]("#h1-tag")["remove"]();
     a["appendTo"](obj);
   });
   $("#mobile-menu")["each"](function () {
     var obj = $(this),
-      a = $("#alotool-main-menu-nav")["clone"]();
+        a   = $("#alotool-main-menu-nav")["clone"]();
     a["attr"]("id", "main-mobile-nav");
     a["find"](".getMega, .mega-widget, .mega-tab")["remove"]();
     a["find"](".complex-tabs")["replaceWith"](a["find"](".complex-tabs > ul.select-tab")["attr"]("class", "sub-menu m-sub"));
     a["find"](".mega-menu > a")["each"](function () {
       var obj1 = $(this),
-        b = obj1["attr"]("href")["trim"]()["toLowerCase"]();
+          b    = obj1["attr"]("href")["trim"]()["toLowerCase"]();
       if (b["match"]("getmega")) {
         obj1["attr"]("href", "/search");
       }
     });
     a["find"](".mega-tabs ul li > a")["each"](function () {
       var obj2 = $(this),
-        c = obj2["text"]()["trim"]();
+          c    = obj2["text"]()["trim"]();
       obj2["attr"]("href", "/search/label/" + c);
     });
     a["appendTo"](obj);
@@ -801,7 +802,7 @@ $(function () {
   });
   $(".social-mobile")["each"](function () {
     var obj = $(this),
-      a = $("#about-section ul.social-footer")["clone"]();
+        a   = $("#about-section ul.social-footer")["clone"]();
     a["removeClass"]("social-bg-hover");
     a["appendTo"](obj);
   });
@@ -810,13 +811,13 @@ $(function () {
     if (fixedMenu == true) {
       if (obj["length"] > 0) {
         var a = $(document)["scrollTop"](),
-          b = obj["offset"]()["top"],
-          c = obj["height"](),
-          d = (b + c);
+            b = obj["offset"]()["top"],
+            c = obj["height"](),
+            d = (b + c);
         $(window)["scroll"](function () {
           var e = $(document)["scrollTop"](),
-            f = $("#footer-wrapper")["offset"]()["top"],
-            g = (f - c);
+              f = $("#footer-wrapper")["offset"]()["top"],
+              g = (f - c);
           if (e < g) {
             if (e > d) {
               obj["addClass"]("is-fixed");
@@ -837,10 +838,10 @@ $(function () {
       }
     }
   });
-  $("#main-wrapper,#sidebar-wrapper")["each"](function () {
+  $("#sidebar-wrapper-left,#main-wrapper,#sidebar-wrapper")["each"](function () {
     if (fixedSidebar == true) {
       $(this)["theiaStickySidebar"]({
-        additionalMarginTop: 30,
+        additionalMarginTop   : 30,
         additionalMarginBottom: 30
       });
     }
@@ -868,16 +869,16 @@ $(function () {
     a["replaceText"](/(?:https:\/\/)?(?:www\.)?(?:youtube\.com)\/(?:watch\?v=)?(.+)/g, "<iframe id=\"youtube\" width=\"100%\" height=\"358\" src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
   });
   $("#load-more-link")["each"](function () {
-    var obj = $(this),
-      load = obj["data"]("load");
+    var obj  = $(this),
+        load = obj["data"]("load");
     if (load) {
       $("#load-more-link")["show"]();
     }
     $("#load-more-link")["on"]("click", function (r) {
       $("#load-more-link")["hide"]();
       $["ajax"]({
-        url: load,
-        success: function (res) {
+        url       : load,
+        success   : function (res) {
           var obj1 = $(res)["find"](".blog-posts");
           obj1["find"](".index-post")["addClass"]("post-animated post-fadeInUp");
           $(".blog-posts")["append"](obj1["html"]());
@@ -893,7 +894,7 @@ $(function () {
         beforeSend: function () {
           $("#blog-pager .loading")["show"]();
         },
-        complete: function () {
+        complete  : function () {
           $("#blog-pager .loading")["hide"]();
         }
       });
@@ -901,8 +902,7 @@ $(function () {
     });
   });
 });
-
-/* ----- COSTUM ----- */
-//TODO
+//---------- CUSTOMIZE ----------//
+// TODO
 
 //]]>

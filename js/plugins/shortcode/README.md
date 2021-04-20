@@ -1,12 +1,9 @@
-# SHORTCODE
+# [SHORTCODE](https://github.com/alotool/lib)
 
-# [shortcode.js](https://github.com/nicinabox/shortcode.js)
-
-Replace [Wordpress-style shortcodes](http://codex.wordpress.org/Shortcode) with anything. No dependencies required.
 
 ## Usage
 
-`Shortcode` accepts 2 arguments: an element, and an object of tags to match.
+`shortcode` accepts 2 arguments: an element, and an object of tags to match.
 
 Each tag method returns a string to replace the original tag (in the DOM) and accepts an (optional) asynchronous callback. `this` is bound to the match object.
 
@@ -18,8 +15,8 @@ new Shortcode(document.querySelector('body'), {
   }
 });
 ```
-
 Tip: Because shortcode replaces an element's html, you will lose existing event bindings inside that element. Use delegated bindings where possible and call shortcode at the start of your code.
+
 
 ## Features
 
@@ -32,9 +29,11 @@ Tip: Because shortcode replaces an element's html, you will lose existing event 
 * Ignores tags inside `pre` and `code`
 * Tested with Jasmine
 
+
 ## Supported browsers
 
 Shortcode.js should work in any browser that supports `Function.prototype.bind` (Sorry IE7 & 8). If you need to support <IE9, try the [polyfill published in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#Compatibility).
+
 
 ## Using async
 
@@ -53,6 +52,7 @@ new Shortcode(document.querySelector('body'), {
 });
 ```
 
+
 ## Start and end tags
 
 Shortcode.js supports tags like `[note]This is a note[/note]`. The content between tags will be availble in your callback under `this.contents`.
@@ -64,6 +64,7 @@ new Shortcode(document.querySelector('body'), {
   }
 });
 ```
+
 
 ## jQuery
 
@@ -79,14 +80,23 @@ $('body').shortcode({
 });
 ```
 
-## Releases
+### Build package
+```shell script
+gulp
+```
 
-See [Releases](https://github.com/nicinabox/shortcode.js/releases) for current version and release notes.
+### Publish package to NPM package registry
+```shell script
+npm login
+npm publish --access public
+```
 
-## Contributing and dev setup
+### Unpublishing a single version of a package
+```shell script
+npm unpublish <package-name>@<version>
+```
 
-See `CONTRIBUTING.md`
-
-## License
-
-MIT (c) 2014 Nic Aitch
+### Unpublishing an entire package
+```shell script
+npm unpublish <package-name> -f
+```
