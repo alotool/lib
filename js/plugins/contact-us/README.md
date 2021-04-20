@@ -2,6 +2,11 @@
 
 [docs](https://plugins.areama.net/ar-contactus-js/docs/)
 
+### Build package
+```shell script
+gulp
+```
+
 ### Publish package to NPM package registry
 ```shell script
 npm login
