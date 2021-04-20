@@ -1,7 +1,7 @@
-const gulp = require('gulp');
-const del = require('del');
+const gulp   = require('gulp');
+const del    = require('del');
 const concat = require('gulp-concat');
-const size = require('gulp-size');
+const size   = require('gulp-size');
 const notify = require('gulp-notify');
 const uglify = require('gulp-uglify');
 
@@ -22,6 +22,6 @@ function scripts() {
 
 const build = gulp.series(clean, gulp.parallel(scripts));
 
-exports.clean = clean;
+exports.clean   = clean;
 exports.scripts = scripts;
 exports.default = build;
