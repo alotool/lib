@@ -1,10 +1,10 @@
-const gulp = require('gulp');
-const del = require('del');
+const gulp   = require('gulp');
+const del    = require('del');
 const concat = require('gulp-concat');
-const size = require('gulp-size');
+const size   = require('gulp-size');
 const notify = require('gulp-notify');
 const uglify = require('gulp-uglify');
-const csso = require('gulp-csso');
+const csso   = require('gulp-csso');
 
 function clean() {
   return del(['dist']);
@@ -34,7 +34,7 @@ function scripts() {
 
 const build = gulp.series(clean, gulp.parallel(styles, scripts));
 
-exports.clean = clean;
-exports.styles = styles;
+exports.clean   = clean;
+exports.styles  = styles;
 exports.scripts = scripts;
 exports.default = build;
