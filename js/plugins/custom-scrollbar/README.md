@@ -69,6 +69,11 @@ Browser compatibility
 * Windows Phone
 
 
+### Build package
+```shell script
+gulp
+```
+
 ### Publish package to NPM package registry
 ```shell script
 npm login
