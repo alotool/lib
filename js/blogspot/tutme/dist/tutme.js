@@ -157,13 +157,18 @@ $(".post-body strike")["each"](function () {
     obj["replaceWith"]("<div class=\"alert-message alert-error short-b\">" + txtHtml + "</div>");
   }
   if (txtRaw["match"]("left-sidebar")) {
-    obj["replaceWith"]("<style>.item #main-wrapper{float:right}.item #sidebar-wrapper{float:left}</style>");
+
+    // Khong cho phep '#sidebar-wrapper' chuyen sang trai, vi blog dang su dung '#sidebar-wrapper-left'
+    //obj["replaceWith"]("<style>.item #main-wrapper{float:right}.item #sidebar-wrapper{float:left}</style>");
+
+    // Van su dung 'right-sidebar'
+    obj["replaceWith"]("<style>.item #main-wrapper{float:left}.item #sidebar-wrapper{float:right}</style>");
   }
   if (txtRaw["match"]("right-sidebar")) {
     obj["replaceWith"]("<style>.item #main-wrapper{float:left}.item #sidebar-wrapper{float:right}</style>");
   }
   if (txtRaw["match"]("full-width")) {
-    obj["replaceWith"]("<style>.item #main-wrapper{width:100%}.item #sidebar-wrapper{display:none}</style>");
+    obj["replaceWith"]("<style>.item #main-wrapper{width:100%}.item #sidebar-wrapper{display:none}.item #sidebar-wrapper-left{display:none}</style>");
   }
   if (txtRaw["match"]("code-box")) {
     obj["replaceWith"]("<pre class=\"code-box short-b\">" + txtHtml + "</pre>");
