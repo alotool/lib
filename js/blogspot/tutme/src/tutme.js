@@ -738,7 +738,7 @@ $(".blog-post-comments")["each"](function () {
       obj["addClass"](classCommentsSystem)["show"]();
       break;
     case "facebook":
-      var elComments = "<div class=\"fb-comments\" data-width=\"100%\" data-href=\"" + bloggerCurrentURL + "\" order_by=\"time\" data-numposts=\"5\"></div>";
+      var elComments = "<div class=\"fb-comments\" data-lazy=\"true\" data-width=\"100%\" data-href=\"" + bloggerCurrentURL + "\" data-order-by=\"time\" data-numposts=\"5\"></div>";
       obj["addClass"](classCommentsSystem)["find"]("#comments")["html"](elComments);
       obj["show"]();
       break;
