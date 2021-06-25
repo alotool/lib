@@ -29,6 +29,9 @@ export class SpinnerLib {
       case "cube-grid":
         this.createCubeGrid();
         break;
+      case "line-scale":
+        this.createLineScale();
+        break;
       default:
         throw `don't know spinner: ${spinner}`
     }
