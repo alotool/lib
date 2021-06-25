@@ -451,7 +451,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = {
-    spinner: "pump", // pump, accordion, pulsar, cube, cubes, circle-line, circles, cube-grid
+    spinner: "pump", // pump, accordion, pulsar, cube, cubes, circle-line, circles, cube-grid, line-scale
     image: false,
     fontawesome: false, // "fa fa-refresh fa-spin fa-2x fa-fw"
     custom: false, // jQuery Object
@@ -462,11 +462,11 @@ exports.default = {
     text: false,
     textColor: false, // default is color
     textMargin: ".5rem",
-    textPosition: "right", // left, right, top, bottom  
+    textPosition: "right", // left, right, top, bottom
     fontSize: "1rem",
     fullScreen: false,
     animation: false, // fade, slide
-    animationDuration: "fast", // String, Integer 
+    animationDuration: "fast", // String, Integer
     containerClass: "busy-load-container",
     containerItemClass: "busy-load-container-item",
     spinnerClass: "busy-load-spinner",
@@ -2364,7 +2364,7 @@ var Spinner = exports.Spinner = function (_Component) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2374,125 +2374,136 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var get = __webpack_require__(0);
 
 var SpinnerLib = exports.SpinnerLib = function () {
-    function SpinnerLib(spinner) {
-        var busyLoadOptions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  function SpinnerLib(spinner) {
+    var busyLoadOptions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-        _classCallCheck(this, SpinnerLib);
+    _classCallCheck(this, SpinnerLib);
 
-        this._busyLoadOptions = busyLoadOptions;
+    this._busyLoadOptions = busyLoadOptions;
 
-        switch (spinner.toLowerCase()) {
-            case "pump":
-                this.createPump();
-                break;
-            case "pulsar":
-                this.createPulsar();
-                break;
-            case "accordion":
-                this.createAccordion();
-                break;
-            case "cube":
-                this.createCube();
-                break;
-            case "cubes":
-                this.createCubes();
-                break;
-            case "circles":
-                this.createCircles();
-                break;
-            case "circle-line":
-                this.createCircleLine();
-                break;
-            case "cube-grid":
-                this.createCubeGrid();
-                break;
-            default:
-                throw "don't know spinner: " + spinner;
-        }
+    switch (spinner.toLowerCase()) {
+      case "pump":
+        this.createPump();
+        break;
+      case "pulsar":
+        this.createPulsar();
+        break;
+      case "accordion":
+        this.createAccordion();
+        break;
+      case "cube":
+        this.createCube();
+        break;
+      case "cubes":
+        this.createCubes();
+        break;
+      case "circles":
+        this.createCircles();
+        break;
+      case "circle-line":
+        this.createCircleLine();
+        break;
+      case "cube-grid":
+        this.createCubeGrid();
+        break;
+      case "line-scale":
+        this.createLineScale();
+        break;
+      default:
+        throw "don't know spinner: " + spinner;
     }
+  }
 
-    _createClass(SpinnerLib, [{
-        key: "createCubeGrid",
-        value: function createCubeGrid() {
-            this._spinner = $("<div class=\"spinner-cube-grid\"> \n              <div class=\"sk-cube sk-cube1\"></div>\n              <div class=\"sk-cube sk-cube2\"></div>\n              <div class=\"sk-cube sk-cube3\"></div>\n              <div class=\"sk-cube sk-cube4\"></div>\n              <div class=\"sk-cube sk-cube5\"></div>\n              <div class=\"sk-cube sk-cube6\"></div>\n              <div class=\"sk-cube sk-cube7\"></div>\n              <div class=\"sk-cube sk-cube8\"></div>\n              <div class=\"sk-cube sk-cube9\"></div>\n        </div>");
-            this._spinner.find(".sk-cube").css({
-                "background-color": get(this._busyLoadOptions, "color", "#333")
-            });
-        }
-    }, {
-        key: "createCircleLine",
-        value: function createCircleLine() {
-            this._spinner = $("<div class=\"spinner-circle-line\">\n              <div class=\"bounce1\"></div>\n              <div class=\"bounce2\"></div>\n              <div class=\"bounce3\"></div>\n        </div>");
-            this._spinner.find(".bounce1, .bounce2, .bounce3").css({
-                "background-color": get(this._busyLoadOptions, "color", "#333")
-            });
-        }
-    }, {
-        key: "createCircles",
-        value: function createCircles() {
-            this._spinner = $("<div class=\"spinner-circles\">\n              <div class=\"dot1\"></div>\n              <div class=\"dot2\"></div>\n        </div>");
-            this._spinner.css({
-                "margin-right": "0.4rem"
-            }).find(".dot1, .dot2").css({
-                "background-color": get(this._busyLoadOptions, "color", "#333")
-            });
-        }
-    }, {
-        key: "createPump",
-        value: function createPump() {
-            this._spinner = $("<div class=\"spinner-pump\">\n            <div class=\"double-bounce1\"></div>\n            <div class=\"double-bounce2\"></div>\n        </div>");
+  _createClass(SpinnerLib, [{
+    key: "createCubeGrid",
+    value: function createCubeGrid() {
+      this._spinner = $("<div class=\"spinner-cube-grid\">\n              <div class=\"sk-cube sk-cube1\"></div>\n              <div class=\"sk-cube sk-cube2\"></div>\n              <div class=\"sk-cube sk-cube3\"></div>\n              <div class=\"sk-cube sk-cube4\"></div>\n              <div class=\"sk-cube sk-cube5\"></div>\n              <div class=\"sk-cube sk-cube6\"></div>\n              <div class=\"sk-cube sk-cube7\"></div>\n              <div class=\"sk-cube sk-cube8\"></div>\n              <div class=\"sk-cube sk-cube9\"></div>\n        </div>");
+      this._spinner.find(".sk-cube").css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "createCircleLine",
+    value: function createCircleLine() {
+      this._spinner = $("<div class=\"spinner-circle-line\">\n              <div class=\"bounce1\"></div>\n              <div class=\"bounce2\"></div>\n              <div class=\"bounce3\"></div>\n        </div>");
+      this._spinner.find(".bounce1, .bounce2, .bounce3").css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "createCircles",
+    value: function createCircles() {
+      this._spinner = $("<div class=\"spinner-circles\">\n              <div class=\"dot1\"></div>\n              <div class=\"dot2\"></div>\n        </div>");
+      this._spinner.css({
+        "margin-right": "0.4rem"
+      }).find(".dot1, .dot2").css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "createPump",
+    value: function createPump() {
+      this._spinner = $("<div class=\"spinner-pump\">\n            <div class=\"double-bounce1\"></div>\n            <div class=\"double-bounce2\"></div>\n        </div>");
 
-            this._spinner.find(".double-bounce1, .double-bounce2").css({
-                "background-color": get(this._busyLoadOptions, "color", "#333"),
-                "margin-right": "0.9rem"
-            });
-        }
-    }, {
-        key: "createPulsar",
-        value: function createPulsar() {
-            this._spinner = $("<div class=\"spinner-pulsar\"></div>");
-            this._spinner.css({
-                "background-color": get(this._busyLoadOptions, "color", "#333")
-            });
-        }
-    }, {
-        key: "createAccordion",
-        value: function createAccordion() {
-            this._spinner = $("<div class=\"spinner-accordion\">\n    \t\t  <div class=\"rect1\"></div>\n    \t\t  <div class=\"rect2\"></div>\n    \t\t  <div class=\"rect3\"></div>\n    \t\t  <div class=\"rect4\"></div>\n    \t\t  <div class=\"rect5\"></div>\n    \t\t</div>");
-            this._spinner.find("div").css({
-                "background-color": get(this._busyLoadOptions, "color", "#333")
-            });
-        }
-    }, {
-        key: "createCube",
-        value: function createCube() {
-            this._spinner = $("<div class=\"spinner-cube\"></div>");
-            this._spinner.css({
-                "background-color": get(this._busyLoadOptions, "color", "#333")
-            });
-        }
-    }, {
-        key: "createCubes",
-        value: function createCubes() {
-            this._spinner = $("<div class=\"spinner-cubes\">  \n            <div class=\"cube1\"></div>\n            <div class=\"cube2\"></div>\n        </div>");
+      this._spinner.find(".double-bounce1, .double-bounce2").css({
+        "background-color": get(this._busyLoadOptions, "color", "#333"),
+        "margin-right": "0.9rem"
+      });
+    }
+  }, {
+    key: "createPulsar",
+    value: function createPulsar() {
+      this._spinner = $("<div class=\"spinner-pulsar\"></div>");
+      this._spinner.css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "createAccordion",
+    value: function createAccordion() {
+      this._spinner = $("<div class=\"spinner-accordion\">\n    \t\t  <div class=\"rect1\"></div>\n    \t\t  <div class=\"rect2\"></div>\n    \t\t  <div class=\"rect3\"></div>\n    \t\t  <div class=\"rect4\"></div>\n    \t\t  <div class=\"rect5\"></div>\n    \t\t</div>");
+      this._spinner.find("div").css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "createCube",
+    value: function createCube() {
+      this._spinner = $("<div class=\"spinner-cube\"></div>");
+      this._spinner.css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "createCubes",
+    value: function createCubes() {
+      this._spinner = $("<div class=\"spinner-cubes\">\n            <div class=\"cube1\"></div>\n            <div class=\"cube2\"></div>\n        </div>");
 
-            this._spinner.css({
-                "margin-right": "0.9rem"
-            }).find(".cube1, .cube2").css({
-                "background-color": get(this._busyLoadOptions, "color", "#333")
-            });
-        }
-    }, {
-        key: "spinner",
-        get: function get() {
-            return this._spinner;
-        },
-        set: function set(spinner) {
-            this._spinner = spinner;
-        }
-    }]);
+      this._spinner.css({
+        "margin-right": "0.9rem"
+      }).find(".cube1, .cube2").css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "createLineScale",
+    value: function createLineScale() {
+      this._spinner = $("<div class=\"spinner-line-scale\">\n    \t\t  <div class=\"rect1\"></div>\n    \t\t  <div class=\"rect2\"></div>\n    \t\t  <div class=\"rect3\"></div>\n    \t\t  <div class=\"rect4\"></div>\n    \t\t  <div class=\"rect5\"></div>\n    \t\t</div>");
+      this._spinner.find("div").css({
+        "background-color": get(this._busyLoadOptions, "color", "#333")
+      });
+    }
+  }, {
+    key: "spinner",
+    get: function get() {
+      return this._spinner;
+    },
+    set: function set(spinner) {
+      this._spinner = spinner;
+    }
+  }]);
 
-    return SpinnerLib;
+  return SpinnerLib;
 }();
 
 /***/ }),
