@@ -1,5 +1,5 @@
 export default  {
-    spinner: "pump", // pump, accordion, pulsar, cube, cubes, circle-line, circles, cube-grid, rect
+    spinner: "pump", // pump, accordion, pulsar, cube, cubes, circle-line, circles, cube-grid, line-scale
     image: false,
     fontawesome: false, // "fa fa-refresh fa-spin fa-2x fa-fw"
     custom: false, // jQuery Object
