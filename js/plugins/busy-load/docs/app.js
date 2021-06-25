@@ -19,6 +19,11 @@ $(function() {
         });
     });
     // spinners
+    $(".spinner-00").click(function(e) {
+      showHide(e, "#spinner-00", {
+        spinner: "line-scale"
+      });
+    });
     $(".spinner-01").click(function(e) {
         showHide(e, "#spinner-01");
     });
@@ -87,7 +92,7 @@ $(function() {
             fontawesome: "fa fa-cog fa-spin fa-3x fa-fw"
         });
     });
-    // custom 
+    // custom
     let count = 2121;
     let customElement = $("<div>", {
         id: "countdown",
