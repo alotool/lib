@@ -1,0 +1,39 @@
+{
+  "name": "@alotool/w3pro",
+  "version": "4.13.0",
+  "version_current": "4.13.0",
+  "description": "Contact us",
+  "readmeFilename": "README.md",
+  "keywords": [
+    "alotool",
+    "w3pro"
+  ],
+  "author": "alotool",
+  "license": "MIT",
+  "homepage": "https://github.com/alotool/lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alotool/lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alotool/lib/issues"
+  },
+  "main": "dist/w3pro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ]
+}
