@@ -1,5 +1,11 @@
 # Highlight.js
 
+- Github Repository: [Link](https://github.com/highlightjs/highlight.js)
+
+- Documentation: [Link](https://highlightjs.readthedocs.io/en/latest/theme-guide.html)
+
+- Download page: [Link](https://highlightjs.org/download/)
+
 ### Build package
 ```shell script
 gulp
