@@ -6,6 +6,8 @@
 
 - Download page: [Link](https://highlightjs.org/download/)
 
+![Custom package](custom-package.png)
+
 ### Build package
 ```shell script
 gulp
