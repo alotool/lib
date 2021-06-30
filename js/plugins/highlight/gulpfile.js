@@ -11,10 +11,10 @@ function clean() {
 }
 
 function styles() {
-  return gulp.src('./src/w3pro.css')
-    .pipe(concat('w3pro.css'))
+  return gulp.src('./src/androidstudio.css')
+    .pipe(concat('androidstudio.css'))
     .pipe(gulp.dest('./dist'))
-    .pipe(concat('w3pro.min.css'))
+    .pipe(concat('androidstudio.min.css'))
     .pipe(csso({discardComments: false}))
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Styles build done successfully!'))
@@ -22,10 +22,10 @@ function styles() {
 }
 
 function scripts() {
-  return gulp.src('./src/w3pro.js')
-    .pipe(concat('w3pro.js'))
+  return gulp.src('./src/highlight.js')
+    .pipe(concat('highlight.js'))
     .pipe(gulp.dest('./dist'))
-    .pipe(concat('w3pro.min.js'))
+    .pipe(concat('highlight.min.js'))
     .pipe(uglify({mangle: true}))
     .pipe(gulp.dest('./dist'))
     .pipe(notify('Scripts build done successfully!'))

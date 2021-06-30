@@ -1,12 +1,13 @@
 {
-  "name": "@alotool/w3pro",
-  "version": "4.13.0",
-  "version_current": "4.13.0",
-  "description": "Contact us",
+  "name": "@alotool/highlight",
+  "version": "11.0.0",
+  "version_current": "11.0.0",
+  "description": "Highlight.js",
   "readmeFilename": "README.md",
   "keywords": [
     "alotool",
-    "w3pro"
+    "highlight",
+    "highlight.js"
   ],
   "author": "alotool",
   "license": "MIT",
