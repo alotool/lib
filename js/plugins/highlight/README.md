@@ -1,4 +1,4 @@
-# W3PRO
+# Highlight.js
 
 ### Build package
 ```shell script
