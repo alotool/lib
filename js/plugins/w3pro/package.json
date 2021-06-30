@@ -2,11 +2,12 @@
   "name": "@alotool/w3pro",
   "version": "4.15.0",
   "version_current": "4.15.0",
-  "description": "W3pro",
+  "description": "W3.CSS - Pro",
   "readmeFilename": "README.md",
   "keywords": [
     "alotool",
-    "w3pro"
+    "w3pro",
+    "w3.css-pro"
   ],
   "author": "alotool",
   "license": "MIT",
